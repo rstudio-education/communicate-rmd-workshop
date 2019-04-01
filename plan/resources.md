@@ -11,6 +11,7 @@ Some really great R Markdown learning resources:
 + [Happy Git with R by Jenny Bryan: R Markdown test drive](https://happygitwithr.com/rmd-test-drive.html)
 + [Sharing Analyses with R Markdown by Andrew Ba Tran](https://andrewbtran.github.io/NICAR/2018/workflow/docs/02-rmarkdown.html)
 + [The lazy and easily distracted report writer by Mike Smith](https://github.com/MikeKSmith/RStudioConf2019)
++ [R Markdown for writing reproducible scientific papers by Mike Frank & Chris Hartgerink](https://libscie.github.io/rmarkdown-workshop/handout.html)
 + [R Ladies Melbourne Publication Ready Docs](https://github.com/R-LadiesMelbourne/2019-02-27-publications-ready-documents-with-Rmarkdown)
 + [R Markdown Cookbook](https://dr-harper.github.io/rmarkdown-cookbook/)
 + [Pimp my Rmd](https://www.r-graph-gallery.com/pimp-my-rmd-a-few-tips-for-r-markdown/)
