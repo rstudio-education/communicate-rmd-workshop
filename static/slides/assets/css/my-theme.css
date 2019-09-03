@@ -254,9 +254,11 @@ div.my-footer span {
   color: #17A2B8;
 }
 
-.your-turn h1, h2 {
+.your-turn h1, .your-turn h2 {
   color: #fff !important;
   font-size: 4em;
+  font-weight: 700 !important;
+  text-shadow: 1px 1px 1px #003b3c;
 }
 
 .your-turn h1:before {
