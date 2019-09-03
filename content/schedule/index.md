@@ -10,7 +10,7 @@ date: "2019-01-01T00:00:00Z"  # Add today's date.
 :clock8:             09:00am - 04:30pm   
 :round_pushpin:      Canberra, Australia   
 :white_check_mark:   [Register](https://statsoc.org.au/event-3457232)  
-:anchor:             [`rmdssa.netlify.com`](https://rmdssa.netlify.com/)
+:anchor:             [`communicate.netlify.com`](https://communicate.netlify.com/)
 
 <br>
 

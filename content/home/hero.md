@@ -52,7 +52,7 @@ hero_media = "proteaceae.jpg"
   label = '[Proteaceæ image](https://www.c82.net/twining/plants/?id=118) by Nicholas Rougeux, CC-BY-SA'
 +++
 
-A full-day workshop for <i class="fab fa-r-project"></i> users who want to get more out of [R Markdown](https://rmarkdown.rstudio.com/) (and friends). In this workshop, you will create, publish, and share some beautiful data products. You'll learn to make:
+A full-day workshop for <i class="fab fa-r-project"></i>&nbsp;users who want to get more out of [R Markdown](https://rmarkdown.rstudio.com/) (and friends). In this workshop, you will create, publish, and share some beautiful data products. You'll learn to make:
 
 + Parameterized reports
 + Version-controlled R Markdown projects
