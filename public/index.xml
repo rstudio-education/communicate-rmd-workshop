@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown for Medicine</title>
+    <link>/</link>
+    <description>Recent content on R Markdown for Medicine</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Sep 2019 08:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prework</title>
+      <link>/materials/prework/</link>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/materials/prework/</guid>
+      <description>
+
+
+&lt;p&gt;Welcome to the &lt;a href=&#34;link%20tbd&#34;&gt;Communicating with R Markdown&lt;/a&gt; workshop! We look forward to meeting you in person. Before attending the workshop, please complete the following prework:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Sign up for a free RStudio Cloud account at &lt;a href=&#34;https://rstudio.cloud/&#34; class=&#34;uri&#34;&gt;https://rstudio.cloud/&lt;/a&gt; before the workshop. I recommend logging in with an existing Google or GitHub account, if you have one (rather than creating a new account with another password you have to remember).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Complete this &lt;a href=&#34;https://commonmark.org/help/tutorial/&#34;&gt;10-minute interactive tutorial on Markdown&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Please bring a laptop that has the following installed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A recent version of R (&amp;gt;=3.6.0), which is available for free at &lt;a href=&#34;https://cloud.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cloud.r-project.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A recent version of RStudio Desktop (&amp;gt;=1.2), available for free (&lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34;&gt;RStudio Desktop Open Source License&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The R packages we will use, which you can install by connecting to the internet, opening RStudio, and running at the command line:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(c(&amp;quot;rmarkdown&amp;quot;, &amp;quot;distill&amp;quot;, &amp;quot;bookdown&amp;quot;,
+                   &amp;quot;tidyverse&amp;quot;, &amp;quot;here&amp;quot;, &amp;quot;janitor&amp;quot;, &amp;quot;skimr&amp;quot;, 
+                   &amp;quot;flextable&amp;quot;, &amp;quot;arsenal&amp;quot;, &amp;quot;scico&amp;quot;, &amp;quot;cowplot&amp;quot;))&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Don’t forget your power cord!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;On the day of the workshop, I’ll provide you with an RStudio Cloud project that contains all of the course materials. We will use the software listed above only as an important backup should there be problems with the on-site internet connection.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/slides/00-loop.html&#34;&gt;View slides&lt;/a&gt; &lt;em&gt;(note: these slides are intentionally a loop and will play on autoadvance)&lt;/em&gt;&lt;/p&gt;
+&lt;iframe src=&#34;/slides/00-loop.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R Markdown Anatomy</title>
+      <link>/materials/01/</link>
+      <pubDate>Mon, 30 Sep 2019 08:00:00 +0000</pubDate>
+      
+      <guid>/materials/01/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/01-rmd-anatomy.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/r-markdown.html&#34;&gt;R4DS R Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/markdown-syntax.html&#34;&gt;R Markdown: The Definitive Guide on Markdown syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/r-code.html&#34;&gt;R Markdown: The Definitive Guide on R code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Outputs &amp; Parameters</title>
+      <link>/materials/02/</link>
+      <pubDate>Thu, 29 Aug 2019 11:21:55 -0700</pubDate>
+      
+      <guid>/materials/02/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/02-output-params.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/r-markdown-formats.html&#34;&gt;R4DS R Markdown formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/output-formats.html&#34;&gt;R Markdown: The Definitive Guide on output formats&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Workflows</title>
+      <link>/materials/03/</link>
+      <pubDate>Thu, 29 Aug 2019 11:21:55 -0700</pubDate>
+      
+      <guid>/materials/03/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/03-workflows.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/workflow-projects.html&#34;&gt;R4DS Workflow: Projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/r-markdown-workflow.html&#34;&gt;R4DS R Markdown workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://whattheyforgot.org/project-oriented-workflow.html&#34;&gt;What They Forgot: Project-oriented workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://whattheyforgot.org/safe-paths.html&#34;&gt;What The Forgot: Practice safe paths&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/r-markdown.html#bibliographies-and-citations&#34;&gt;R4DS Bibliographies &amp;amp; Citations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/bookdown/a-single-document.html&#34;&gt;Bookdown: A single document&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/bookdown/cross-references.html&#34;&gt;Bookdown: Cross-references&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/rticles-bookdown.html&#34;&gt;Linking rticles to bookdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Templates</title>
+      <link>/materials/04-templates/</link>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/materials/04-templates/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/04-templates.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/rticles-bookdown.html&#34;&gt;Linking rticles to bookdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/graphics-for-communication.html&#34;&gt;R4DS Graphics for communication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html&#34;&gt;R Markdown: The Definitive Guide chapter on PowerPoint presentations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/docs/reference/powerpoint_presentation.html&#34;&gt;R Markdown docs on &lt;code&gt;powerpoint_presentation&lt;/code&gt; output format&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://resources.rstudio.com/webinars/make-powerpoint-presentations-with-r-markdown-nathan-stephens&#34;&gt;RStudio webinar &lt;em&gt;Make PowerPoint Presentations with R Markdown&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Collections</title>
+      <link>/materials/05-collections/</link>
+      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/materials/05-collections/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/05-collections.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/rticles-bookdown.html&#34;&gt;Linking rticles to bookdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/graphics-for-communication.html&#34;&gt;R4DS Graphics for communication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html&#34;&gt;R Markdown: The Definitive Guide chapter on PowerPoint presentations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/docs/reference/powerpoint_presentation.html&#34;&gt;R Markdown docs on &lt;code&gt;powerpoint_presentation&lt;/code&gt; output format&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://resources.rstudio.com/webinars/make-powerpoint-presentations-with-r-markdown-nathan-stephens&#34;&gt;RStudio webinar &lt;em&gt;Make PowerPoint Presentations with R Markdown&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About the workshop</title>
+      <link>/about/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>People</title>
+      <link>/people/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/people/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Workshop Schedule</title>
+      <link>/schedule/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/schedule/</guid>
+      <description>&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;🗓    September 30, 2019&lt;br /&gt;
+🕗             09:00am - 04:30pm&lt;br /&gt;
+📍      Canberra, Australia&lt;br /&gt;
+✅   &lt;a href=&#34;https://statsoc.org.au/event-3457232&#34; target=&#34;_blank&#34;&gt;Register&lt;/a&gt;&lt;br /&gt;
+⚓️             &lt;a href=&#34;https://rmdssa.netlify.com/&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;rmdssa.netlify.com&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Time&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Activity&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;09:00 - 10:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Session 1 (R Markdown Anatomy)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;10:00 - 10:15&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;em&gt;Break&lt;/em&gt; 🍵&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;10:15 - 11:15&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Session 2 (Outputs &amp;amp; Parameters)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;11:15 - 11:30&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;em&gt;Break&lt;/em&gt; 🍵&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;11:30 - 12:30&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Session 3 (Workflow: Projects, Publishing, &amp;amp; Version Control)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;12:30 - 01:30&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;em&gt;Lunch&lt;/em&gt; 🍱&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;01:30 - 02:30&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Session 4 (Templates)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;02:30 - 02:45&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;em&gt;Break&lt;/em&gt; 🍵&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;02:45 - 03:45&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Session 5 (Curating Collections)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;03:45 - 04:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;em&gt;Break&lt;/em&gt; 🍵&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;04:00 - 04:30&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Show &amp;amp; Tell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LICENSE: CC-BY</title>
+      <link>/license/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      
+      <guid>/license/</guid>
+      <description>&lt;p&gt;This work is
+licensed under a &lt;a href=&#34;http://creativecommons.org/licenses/by/4.0/&#34; target=&#34;_blank&#34;&gt;Creative Commons Attribution 4.0 International License&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;i class=&#34;fab fa-creative-commons fa-2x&#34;&gt;&lt;/i&gt;&lt;i class=&#34;fab fa-creative-commons-by fa-2x&#34;&gt;&lt;/i&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is a human-readable summary of (and not a substitute for) the license.
+Please see &lt;a href=&#34;https://creativecommons.org/licenses/by/4.0/legalcode&#34; target=&#34;_blank&#34;&gt;https://creativecommons.org/licenses/by/4.0/legalcode&lt;/a&gt; for the full legal text.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You are free to:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Share&lt;/strong&gt;&amp;mdash;copy and redistribute the material in any medium or
+format&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Remix&lt;/strong&gt;&amp;mdash;remix, transform, and build upon the material for any
+purpose, even commercially.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The licensor cannot revoke these freedoms as long as you follow the
+license terms.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Under the following terms:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Attribution&lt;/strong&gt;&amp;mdash;You must give appropriate credit, provide a link
+to the license, and indicate if changes were made. You may do so in
+any reasonable manner, but not in any way that suggests the licensor
+endorses you or your use.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No additional restrictions&lt;/strong&gt;&amp;mdash;You may not apply legal terms or
+technological measures that legally restrict others from doing
+anything the license permits.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Notices:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You do not have to comply with the license for elements of the
+material in the public domain or where your use is permitted by an
+applicable exception or limitation.&lt;/p&gt;
+
+&lt;p&gt;No warranties are given. The license may not give you all of the
+permissions necessary for your intended use. For example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

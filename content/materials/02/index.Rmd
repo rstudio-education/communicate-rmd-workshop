@@ -1,0 +1,34 @@
+---
+title: Outputs & Parameters
+draft: false
+authors: [alison]
+event: 'Young Statisticians Conference 2019'
+event_url: https://ysc2019.netlify.com/#workshop
+location: Canberra, Australia
+summary: "Session 02"
+categories: [slides]
+tags: []
+lastmod: '2019-08-29T11:21:55-07:00'
+featured: no
+image:
+  caption: "[Proteaceæ image](https://www.c82.net/twining/plants/?id=118) by Nicholas Rougeux, CC-BY-SA"
+  focal_point: 'center'
+  preview_only: yes
+projects: []
+weight: 3
+links:
+- icon: images
+  icon_pack: fas
+  name: slides
+  url: /slides/02-output-params.html
+---
+
+
+```{r echo=FALSE}
+knitr::include_url("/slides/02-output-params.html")
+```
+
+# Relevant resources
+
++ [R4DS R Markdown formats](https://r4ds.had.co.nz/r-markdown-formats.html)
++ [R Markdown: The Definitive Guide on output formats](https://bookdown.org/yihui/rmarkdown/output-formats.html)

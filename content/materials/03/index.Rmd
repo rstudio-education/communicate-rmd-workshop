@@ -1,0 +1,42 @@
+---
+title: Workflows
+draft: false
+authors: [alison]
+event: 'Young Statisticians Conference 2019'
+event_url: https://ysc2019.netlify.com/#workshop
+location: Canberra, Australia
+summary: "Session 03"
+categories: [slides]
+tags: []
+subtitle: 'Session 03'
+lastmod: '2019-08-29T11:21:55-07:00'
+featured: no
+image:
+  caption: "[Proteaceæ image](https://www.c82.net/twining/plants/?id=118) by Nicholas Rougeux, CC-BY-SA"
+  focal_point: 'center'
+  preview_only: yes
+projects: []
+weight: 4
+links:
+- icon: images
+  icon_pack: fas
+  name: slides
+  url: /slides/03-workflows.html
+---
+
+
+```{r echo=FALSE}
+knitr::include_url("/slides/03-workflows.html")
+```
+
+# Relevant resources
+
++ [R4DS Workflow: Projects](https://r4ds.had.co.nz/workflow-projects.html)
++ [R4DS R Markdown workflow](https://r4ds.had.co.nz/r-markdown-workflow.html)
++ [What They Forgot: Project-oriented workflow](https://whattheyforgot.org/project-oriented-workflow.html)
++ [What The Forgot: Practice safe paths](https://whattheyforgot.org/safe-paths.html)
++ [R4DS Bibliographies & Citations](https://r4ds.had.co.nz/r-markdown.html#bibliographies-and-citations)
++ [Bookdown: A single document](https://bookdown.org/yihui/bookdown/a-single-document.html)
++ [Bookdown: Cross-references](https://bookdown.org/yihui/bookdown/cross-references.html)
++ [Linking rticles to bookdown](https://bookdown.org/yihui/rmarkdown/rticles-bookdown.html)
+

@@ -1,0 +1,25 @@
+# Theme metadata
+name = "workshop_theme3"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary ="#5e83dc" #accent color 
+primary_light = "#767071" 
+primary_dark = "#575757"
+
+# Links
+link = "#5e83dc" 
+link_hover = "#98aee4" # hover color for icons beneath profile
+
+# Menu
+menu_primary = "#c37280"
+menu_text = "#fcfcfc"
+menu_text_active = "#40181e" 
+menu_title = "#fcfcfc"
+
+# Backgrounds
+background = "#f0e2e2"
+home_section_odd = "#fcfcfc"
+home_section_even = "#fcfcfc"

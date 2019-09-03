@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rmarkdown on R Markdown for Medicine</title>
+    <link>/tags/rmarkdown/</link>
+    <description>Recent content in rmarkdown on R Markdown for Medicine</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Sep 2019 08:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Markdown Anatomy</title>
+      <link>/materials/01/</link>
+      <pubDate>Mon, 30 Sep 2019 08:00:00 +0000</pubDate>
+      
+      <guid>/materials/01/</guid>
+      <description>
+
+
+&lt;iframe src=&#34;/slides/01-rmd-anatomy.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;relevant-resources&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Relevant resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/r-markdown.html&#34;&gt;R4DS R Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/markdown-syntax.html&#34;&gt;R Markdown: The Definitive Guide on Markdown syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/r-code.html&#34;&gt;R Markdown: The Definitive Guide on R code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

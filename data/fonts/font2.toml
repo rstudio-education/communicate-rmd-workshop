@@ -1,0 +1,15 @@
+# Font style metadata
+name = "workshop_font2"
+
+# Optional Google font URL
+google_fonts = "Cutive+Mono|Arvo|Lato"
+
+# Font families
+heading_font = "Arvo"
+body_font = "Lato"
+nav_font = "Arvo"
+mono_font = "Cutive Mono"
+
+# Font size
+font_size = "17"
+font_size_small = "15"
