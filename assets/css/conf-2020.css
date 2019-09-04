@@ -101,3 +101,8 @@ a.hero-cta-alt:hover {
 .btn-toolbar .btn:last-child {
   border-radius: 0px;
 }
+
+/* code */
+pre {
+	font-size: 1rem;
+}
