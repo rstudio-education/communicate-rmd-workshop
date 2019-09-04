@@ -1,13 +1,11 @@
 ---
-title: Templates
+title: 'Session 03: Templates'
 draft: false
 event: 'Young Statisticians Conference 2019'
 event_url: https://ysc2019.netlify.com/#workshop
 location: Canberra, Australia
-summary: "Session 03"
 categories: [slides]
 tags: []
-subtitle: 'Session 03'
 lastmod: '2019-08-29T11:21:55-07:00'
 featured: no
 image:

@@ -1,10 +1,9 @@
 ---
-title: R Markdown Anatomy
+title: 'Session 01: R Markdown Anatomy'
 draft: false
 event: 'Young Statisticians Conference 2019'
 event_url: https://ysc2019.netlify.com/#workshop
 location: Canberra, Australia
-summary: "Session 01"
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.

@@ -1,5 +1,5 @@
 ---
-title: Prework
+title: 'Session 00: Prework'
 aliases: /prework
 date: '2019-08-29'
 categories: [prework]
@@ -15,7 +15,7 @@ projects: []
 weight: 1
 ---
 
-Welcome to the [Communicating with R Markdown](link tbd) workshop! We look forward to meeting you in person. Before attending the workshop, please complete the following prework:
+Welcome to the [Communicating with R Markdown](/) workshop! We look forward to meeting you in person. Before attending the workshop, please complete the following prework:
 
 1. Sign up for a free RStudio Cloud account at https://rstudio.cloud/ before the workshop. I recommend logging in with an existing Google or GitHub account, if you have one (rather than creating a new account with another password you have to remember).
 

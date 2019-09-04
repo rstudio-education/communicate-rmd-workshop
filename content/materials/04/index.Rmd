@@ -1,10 +1,8 @@
 ---
-title: Collections
+title: 'Session 04: Collections'
 date: '2019-08-29'
 categories: [slides]
 tags: []
-subtitle: 'Session 04'
-summary: 'Session 04'
 lastmod: '2019-08-29T11:21:55-07:00'
 featured: no
 image:
