@@ -1,6 +1,6 @@
 ---
 title: "Curating Collections"
-session: "05"
+session: "04"
 subtitle: "Young Statisticians Conference 2019"
 author: Alison Hill
 date: "`r Sys.Date()`"

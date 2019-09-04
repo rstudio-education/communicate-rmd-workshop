@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Workflows</title>
+    <title>Project Workflows</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
-    <meta name="date" content="2019-09-02" />
+    <meta name="date" content="2019-09-03" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
@@ -25,10 +25,10 @@ class: title-slide, center, middle
 
 &lt;span class="fa-stack fa-4x"&gt;
   &lt;i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"&gt;&lt;/i&gt;
-  &lt;strong class="fa-stack-1x" style="color:#3b4245;"&gt;03&lt;/strong&gt;
+  &lt;strong class="fa-stack-1x" style="color:#3b4245;"&gt;02&lt;/strong&gt;
 &lt;/span&gt; 
 
-# Workflows
+# Project Workflows
 
 ## Young Statisticians Conference 2019
 
@@ -39,7 +39,12 @@ class: title-slide, center, middle
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
-???
+---
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;rstudio.cloud/link&lt;/span&gt;&lt;/div&gt;
+
+&lt;!-- this adds the link footer to all slides, depends on my-footer class in css--&gt;
 
 ---
 
@@ -50,7 +55,130 @@ cloud link
 
 plot here times knitted so far
 
-add in kable, gt, DT
+---
+
+# Pop quiz
+
+_(discuss with a neighbor)_
+
+Which of the following is **NOT** a part of R Markdown basic anatomy?
+
+1. Metadata (written in YAML).
+
+1. Text (written in Markdown).
+
+1. CSS.
+
+1. Code (&lt;i class="fab fa-r-project"&gt;&lt;/i&gt; or other).
+
+1. Output.
+
+
+---
+
+# Match these! 
+
+_(discuss with a neighbor)_
+
+.pull-left[
+
++ Metadata
+
++ text
+
++ Code
+
++ Output
+]
+
+.pull-right[
+
++ Markdown
+
++ `knitr`
+
++ &lt;i class="fab fa-r-project"&gt;&lt;/i&gt; (or other programming language)
+
++ YAML
+]
+
+---
+class: middle, center
+background-image: url(images/pierre-acobas-nbD0VmKnPrI-unsplash.jpg)
+background-position: right
+background-size: contain
+
+
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#2f5275;"&gt;1 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Output formats
+
+--
+
+What do you want to make?
+
+---
+
+Built in formats (in the `rmarkdown` package)
+
+versus
+
+extensions (different packages that extend output formats available to you)
+
+---
+class: your-turn
+
+# Your turn
+
+## Use a different built-in format
+
+Use the drop-down menu for the 🧶 **Knit** button and try:
+
+1. Knitting to Word
+
+1. Knitting to PDF
+
+<div class="countdown" id="timer_5d6f43f1" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: your-turn
+
+# Your turn
+
+## Use an extension package
+
+.pull-left[
+
+1. Edit your YAML! Change the `output:` key to `distill::distill_article()` (note: this requires you to install the [`distill` package](https://rstudio.github.io/distill/) on your own computer)
+
+1. 🧶 **Knit** to distill_article.
+]
+
+.pull-right[
+
+```yaml
+---
+author: Your name here
+title: Your title here
+output: distill::distill_article
+---
+```
+]
+
+<div class="countdown" id="timer_5d6f42cd" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
@@ -258,7 +386,7 @@ class: middle, center, inverse
 
 To a section, a figure, and a table in the text.
 
-<div class="countdown" id="timer_5d6def6b" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d6f45b5" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -276,8 +404,8 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d6deda5" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown blink-colon noupdate-15" id="timer_5d6f43cc" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

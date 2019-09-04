@@ -1,7 +1,6 @@
 ---
-title: Templates
+title: Collections
 date: '2019-08-29'
-slug: 04-templates
 categories: [slides]
 tags: []
 subtitle: 'Session 04'
@@ -18,11 +17,11 @@ links:
 - icon: images
   icon_pack: fas
   name: slides
-  url: /slides/04-templates.html
+  url: /slides/04-collections.html
 ---
 
 ```{r echo=FALSE}
-knitr::include_url("/slides/04-templates.html")
+knitr::include_url("/slides/04-collections.html")
 ```
 
 # Relevant resources

@@ -17,7 +17,7 @@ links:
 - icon: images
   icon_pack: fas
   name: slides
-  url: /slides/01-rmd-anatomy.html
+  url: /slides/01-anatomy.html
 
 categories:
   - workshop
@@ -34,7 +34,7 @@ weight: 2
 ---
 
 ```{r echo=FALSE}
-knitr::include_url("/slides/01-rmd-anatomy.html")
+knitr::include_url("/slides/01-anatomy.html")
 ```
 
 # Relevant resources

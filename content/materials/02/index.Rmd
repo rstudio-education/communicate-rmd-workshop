@@ -1,5 +1,5 @@
 ---
-title: Outputs & Parameters
+title: Project Workflows
 draft: false
 event: 'Young Statisticians Conference 2019'
 event_url: https://ysc2019.netlify.com/#workshop
@@ -19,12 +19,12 @@ links:
 - icon: images
   icon_pack: fas
   name: slides
-  url: /slides/02-output-params.html
+  url: /slides/02-proj-workflows.html
 ---
 
 
 ```{r echo=FALSE}
-knitr::include_url("/slides/02-output-params.html")
+knitr::include_url("/slides/02-proj-workflows.html")
 ```
 
 # Relevant resources

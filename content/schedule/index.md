@@ -16,16 +16,12 @@ date: "2019-01-01T00:00:00Z"  # Add today's date.
 
 | Time          | Activity                                                      |
 |:--------------|:--------------------------------------------------------------|
-| 09:00 - 10:00 | Session 1 (R Markdown Anatomy)                                |
-| 10:00 - 10:15 | *Break* :tea:                                                 |
-| 10:15 - 11:15 | Session 2 (Outputs & Parameters)                              |
-| 11:15 - 11:30 | *Break* :tea:                                                 |
-| 11:30 - 12:30 | Session 3 (Workflow: Projects, Publishing, & Version Control) |
-| 12:30 - 01:30 | *Lunch* :bento:                                               |
-| 01:30 - 02:30 | Session 4 (Templates)                                         |
-| 02:30 - 02:45 | *Break* :tea:                                                 |
-| 02:45 - 03:45 | Session 5 (Curating Collections)                              |
-| 03:45 - 04:00 | *Break* :tea:                                                 |
-| 04:00 - 04:30 | Show & Tell                                                   |
+| 09:00 - 10:30 | Session 1 (R Markdown Anatomy)                                |
+| 10:30 - 10:45 | *Break* :tea:                                                 |
+| 10:45 - 12:15 | Session 2 (Project Workflows)                                 |
+| 12:15 - 01:15 | *Lunch* :bento:                                               |
+| 01:15 - 02:45 | Session 3 (Templates)                                         |
+| 02:45 - 03:00 | *Break* :tea:                                                 |
+| 03:00 - 04:30 | Session 4 (Collections)                                       |
 
 <br>
