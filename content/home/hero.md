@@ -49,7 +49,7 @@ hero_media = "proteaceae.jpg"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
-  label = '[Proteaceæ image](https://www.c82.net/twining/plants/?id=118) by Nicholas Rougeux, CC-BY-SA'
+  label = 'Proteaceæ illustration by Elizabeth Twining, [CC-BY-SA Nicholas Rougeux]((https://www.c82.net/twining/plants/?id=118))<br>Website theme by [Desirée De Leon](http://desiree.rbind.io/)'
 +++
 
 A full-day workshop for <i class="fab fa-r-project"></i>&nbsp;users who want to get more out of [R Markdown](https://rmarkdown.rstudio.com/) (and friends). In this workshop, you will create, publish, and share some beautiful data products. You'll learn to make:
