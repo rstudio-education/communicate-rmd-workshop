@@ -18,6 +18,11 @@ output:
       beforeInit: "https://platform.twitter.com/widgets.js"
     includes:
       in_header: [assets/loop.html, assets/header.html]
+params:
+  wifi_network: "tbd"
+  wifi_password: "tbd"
+  site_link: "https://ysc-rmarkdown.netlify.com/"
+  cloud_link: "tbd"
 ---
 
 ```{r setup, include=FALSE}
@@ -33,7 +38,7 @@ class: title-slide, center, middle
 
 <span class="fa-stack fa-4x">
   <i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"></i>
-  <strong class="fa-stack-1x" style="color:#3b4245;">Hi!</strong>
+  <strong class="fa-stack-1x" style="color:#e7553c;">Hi!</strong>
 </span> 
 
 # `r rmarkdown::metadata$title`
@@ -42,20 +47,10 @@ class: title-slide, center, middle
 
 ### `r rmarkdown::metadata$author` &#183; RStudio
 
-#### [rmd4medicine.netlify.com/](https://rmd4medicine.netlify.com/)
-
-<!-- this ends up being the title slide since seal = FALSE-->
+#### [`r params$site_link`](`r params$site_link`)
 
 ???
 
----
-class: middle, center
-
-# <i class="fas fa-cloud"></i>
-
-Go here and log in (free):
-
-cloud link
 
 ---
 class: middle, center
@@ -63,15 +58,38 @@ class: middle, center
 .pull-left[
 # <i class="fas fa-wifi"></i>
 
-Wifi network name
+Wifi network name  
+
+`r params$wifi_network`
+
 ]
 
 .pull-left[
 # <i class="fas fa-key"></i>
 
 Wifi password
+
+`r params$wifi_password`
+
 ]
 
+---
+class: middle, center
+
+# <i class="fas fa-cloud"></i>
+
+# Go here and log in (free):
+
+[`r params$cloud_link`](`r params$cloud_link`)
+
+---
+class: center, middle
+
+# <i class="fab fa-github"></i>
+
+# Go here and log in (free):
+
+# https://github.com/
 
 ---
 class: center, middle

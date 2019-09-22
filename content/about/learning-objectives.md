@@ -49,24 +49,3 @@ subtitle = ""
 
 Participants will learn how to:
 
-1. Identify the basic anatomy of an R Markdown document. 
-
-1. Make and knit an R Markdown document. 
-
-1. Add text, R code, and output to an R Markdown document. 
-
-1. Change the output format of an R Markdown document.
-
-1. Use R code to create tables summarizing participants (i.e., a "Table One") and statistical analyses within an R Markdown document.
-
-1. Organize files and set up file paths when working in an R Markdown project.
-
-1. Avoid growing pains as your R Markdown project evolves alongside your research project.
-
-1. Export your figures and tables to a place you can find on your computer so you can share and re-use them. 
-
-1. Embed figures generated from R code in an R Markdown document, including multi-panel plots.
-
-1. Control how your figures look using `knitr` code chunk options, captions, and cross-references.
-
-1. Use new output formats like powerpoint presentations, conference posters, etc.- all built with R Markdown as the foundation.

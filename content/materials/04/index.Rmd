@@ -1,5 +1,6 @@
 ---
 title: 'Session 04: Collections'
+draft: true
 date: '2019-08-29'
 categories: [slides]
 tags: []

@@ -5,7 +5,7 @@
 
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
+active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
 title = "Overview"
@@ -47,4 +47,4 @@ subtitle = ""
  css_class = ""
 +++
 
-Starting with a mock clinical trial dataset, we'll use R Markdown to combine prose, R code, and figures and tables created with R code into a nicely formatted and reproducible final manuscript.
+A workshop for R Markdown users who want to get more out of R Markdown (and friends). In this workshop, we will demystify how R Markdown works under the hood. You will learn practical tools and workflows to increase your efficiency and productivity using R Markdown (including RStudio IDE features and templates), while learning how to use some extension packages along the way. We assume that you have knit an R Markdown document before, but you don’t need to be an advanced R Markdown user to take this workshop. 

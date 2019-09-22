@@ -2,7 +2,7 @@
 # A "Three Questions" section created with the Featurette widget.
 widget = "featurette"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
+active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "Is this workshop for me?"
@@ -13,10 +13,10 @@ subtitle = "This workshop will be appropriate for attendees who answer yes to th
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
 [[feature]]
-  icon = "scroll"
-  icon_pack = "fas"
+  icon = "github"
+  icon_pack = "fab"
   name = ""
-  description = "Have you written or collaborated on a medical manuscript to submit for publication to a peer-reviewed journal?"
+  description = "Have you heard of version control or GitHub and curious to learn more?"
   
 [[feature]]
   icon = "r-project"
