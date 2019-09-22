@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Advanced R Markdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alison Hill" />
+    <meta name="date" content="2019-09-23" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/my-theme.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/my-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+class: title-slide, center, middle
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#e7553c;"&gt;02&lt;/strong&gt;
+&lt;/span&gt; 
+
+
+# Advanced R Markdown
+
+## Young Statisticians Conference 2019
+
+### Alison Hill &amp;#183; RStudio
+
+#### [https://ysc-rmarkdown.netlify.com/](https://ysc-rmarkdown.netlify.com/)
+
+&lt;!--
+head notes
+output formats to html- 
+-demo cross references for headers, figures, and tables made with kable
+-cover here render from command line and go deeper into looping over parameters as well as output formats
+--&gt;
+
+---
+class: middle, center
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+# Go here and log in (free):
+
+[tbd](tbd)
+
+---
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;https://ysc-rmarkdown.netlify.com/&lt;/span&gt;&lt;/div&gt;
+
+
+---
+
+
+
+---
+class: top
+
+.left-column[
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
+&lt;/span&gt; 
+
+]
+
+
+.right-column[
+
+# How *does* R Markdown work?
+
+1. 🤷 (✔️)
+
+1. ["I press knit, a document appears, and I believe that anything happening in between could be actual magic."](https://twitter.com/allison_horst/status/1070323369600442368?s=20) (🧙‍♂️)
+
+1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. (✔️)
+
+]
+
+---
+class: middle, center
+
+
+
+
+&gt; "In a nutshell, R Markdown stands on the shoulders of `knitr` and **Pandoc**.
+
+--
+
+&gt; The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown.
+
+--
+
+&gt; The latter renders Markdown to the output format you want (such as PDF, HTML, Word, and so on)."
+
+--
+
+&gt; &amp;mdash; [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+---
+class: center, middle
+
+# Foreshadowing
+
+
+
+
+??? 
+
+but first a pop quiz...
+
+---
+class: pop-quiz
+
+# Pop quiz
+
+
+Which of the following is **NOT** a part of R Markdown basic anatomy?
+
+1. Metadata
+
+1. Text
+
+1. CSS
+
+1. Code
+
+1. Output
+
+
+---
+class: your-turn
+
+
+# Your turn
+
+## Mad libs style &amp;mdash; with a neighbor
+
+```markdown
+ ___________ is written at the top between `---` in ________.
+    noun                                             syntax
+                                                     
+  ______ is written in Markdown.
+   noun         
+  
+  ______ is written in R (or other programming language).
+   noun   
+   
+  The ______ package evaluates the code and produces the ______.
+       noun                                               noun
+```
+
+_psst: answers on next slide..._
+
+
+
+---
+class: your-turn
+
+
+# Your turn
+
+## Answers
+
+```markdown
+ Metadata is written at the top between `---` in YAML.
+   (noun)                                      (syntax)
+                                                     
+  Text is written in Markdown.
+ (noun)         
+  
+  Code is written in R (or other programming language).
+ (noun)   
+   
+  The knitr package evaluates the code and produces the output.
+     (noun)                                             (noun) 
+```
+
+---
+class: your-turn
+
+# Your turn
+
+Find a partner and look at `02-progress.Rmd` together. 
+Look at the source, then 🧶 **Knit**.
+
+Answer the following questions:
+
+1. What is the output **format**?
+
+1. Are there any output **options**?
+
+1. Are any `knitr` **global** chunk options set?
+
+1. Anything in the code look foreign to you? 
+
+1. Anything in the output (or not in the output) surprise you?
+
+
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#2f5275;"&gt;1 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Output formats
+
+
+---
+class: middle, center
+
+
+
+???
+
+Built in formats (in the `rmarkdown` package)
+
+versus
+
+extensions (different packages that extend output formats available to you)
+
+---
+class: middle, center
+
+
+
+
+https://rmarkdown.rstudio.com/docs/reference/index.html#section-output-formats
+
+---
+class: your-turn
+
+# Your turn
+
+## Use a different built-in format
+
+.pull-left[
+
+Use the drop-down menu for the 🧶 **Knit** button and try:
+
+1. Knit to Word
+
+1. Knit to PDF
+
+]
+
+.pull-right[
+
+
+]
+
+
+
+
+---
+
+# Temp check 🌡
+
+Does your current YAML look like this?
+
+
+
+???
+
+This is a great way to "control" your knit button!
+
+Notice that when you knit, it respects those output options in your YAML.
+
+This way you "save" your output options
+
+---
+class: your-turn
+
+# Your turn
+
+## Add output options with your YAML
+
+.pull-left[
+
+You just used the drop-down 🧶 **Knit** button to knit to Word and PDF. 
+
+1. Change your YAML to the right...
+
+1. Be __very careful__ about indentation and `:` here!!
+
+1. 🧶 **Knit** to Word again- is there a TOC?
+
+]
+
+.pull-right[
+
+
+
+]
+
+
+
+
+---
+
+# What is hard about YAML?
+
+.pull-left[
+![](https://media.giphy.com/media/Nt2cPxzpKhbCE/giphy.gif)
+]
+
+.pull-right[
++ Indentations matter
+
++ Rarely informative error messages
+
++ Knowing which output options are relevant for different formats (i.e., Word, PDF, HTML, etc.)
+
++ Easy to forget the right `key`
+
++ Easy to forget the possible `values` for a given `key`
+]
+---
+class: your-turn
+
+# Your turn
+
+## Use an extension package
+
+
+1. Edit your YAML again! Change the `output:` key to only `distill::distill_article` 
+
+1. Save the document; click on the dropdown 🧶 **Knit** button- what do you notice?
+
+1. 🧶 **Knit** to distill_article.
+
+**If this was easy**, add a table of contents too.
+
+_psst...answers on the next slide..._
+
+
+
+
+.footnote[(note: this requires you to install the [`distill` package](https://rstudio.github.io/distill/) on your own computer)]
+
+???
+
+At this point, I'm going to stick with the distill_article output format for the rest of this session.
+
+---
+class: your-turn
+
+# Your turn
+
+## Answer
+
+.pull-left[
+
+]
+
+.pull-right[
+
+]
+
+---
+class: middle
+
+# Pop quiz
+
+.pull-left[
+How do you add a single output **format** to your YAML?
+
+```yaml
+---
+output: html_document: default
+---
+output: html_document
+---
+```
+
+]
+
+--
+
+.pull-right[
+How do you add an output **option** to a format in your YAML?
+
+```yaml
+---
+output: 
+  html_document: 
+    toc: true
+---
+output: 
+  html_document(toc=true)
+---
+```
+
+]
+
+---
+class: middle
+
+# Pop quiz
+
+.pull-left[
+How do you add another output **format** to your YAML?
+
+```yaml
+---
+output: 
+  html_document: default
+  word_document: default
+---
+output: 
+  html_document()
+  word_document()
+---
+```
+
+]
+
+--
+
+
+.pull-right[
+How do you now add output **options** to your YAML?
+
+```yaml
+---
+output: 
+  html_document: 
+    toc: true
+  word_document: default
+---
+output: 
+  html_document(toc=true)
+  word_document(default)
+---
+```
+
+]
+
+---
+
+
+
+
+
+
+---
+class: middle, center
+
+# ⏱
+
+# Time for a break!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dracula",
+"highlightLanguage": ["r", "yaml", "markdown"],
+"slideNumberFormat": "",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

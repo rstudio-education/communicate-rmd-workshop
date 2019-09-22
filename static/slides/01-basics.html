@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>R Markdown Basics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alison Hill" />
+    <meta name="date" content="2019-09-23" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/my-theme.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/my-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+class: title-slide, center, middle
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#e7553c;"&gt;01&lt;/strong&gt;
+&lt;/span&gt; 
+
+# R Markdown Basics
+
+## Young Statisticians Conference 2019
+
+### Alison Hill &amp;#183; RStudio
+
+#### [https://ysc-rmarkdown.netlify.com/](https://ysc-rmarkdown.netlify.com/)
+
+
+---
+class: middle, center
+
+.pull-left[
+# &lt;i class="fas fa-wifi"&gt;&lt;/i&gt;
+
+Wifi network name  
+
+tbd
+
+]
+
+.pull-left[
+# &lt;i class="fas fa-key"&gt;&lt;/i&gt;
+
+Wifi password
+
+tbd
+
+]
+
+---
+class: middle, center
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+# Go here and log in (free):
+
+[tbd](tbd)
+
+---
+class: middle, center
+
+| Time          | Activity                                                      |
+|:--------------|:--------------------------------------------------------------|
+| 09:00 - 10:30 | Session 1 (R Markdown Basics)                                 |
+| 10:30 - 10:45 | *Break* :tea:                                                 |
+| 10:45 - 12:15 | Session 2 (Output Formats &amp; Version Control)                  |
+| 12:15 - 01:15 | *Lunch* :bento:                                               |
+| 01:15 - 02:45 | Session 3 (Templates)                                         |
+| 02:45 - 03:00 | *Break* :tea:                                                 |
+| 03:00 - 04:30 | Session 4 (Collections)                                       |
+
+---
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;https://ysc-rmarkdown.netlify.com/&lt;/span&gt;&lt;/div&gt;
+
+---
+background-image: url(images/hello.jpg)
+background-position: top center
+background-size: 100%
+class: middle, center
+
+.pull-left[
+### Alison Hill  
+[&lt;i class="fab fa-github"&gt;&lt;/i&gt; @apreshill](https://github.com/apreshill)  
+[&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; @apreshill](https://twitter.com/apreshill)
+
+]
+
+.pull-right[
+### Emi Tanaka  
+[&lt;i class="fab fa-github"&gt;&lt;/i&gt; @emitanaka](https://github.com/emitanaka)  
+[&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; @statsgen](https://twitter.com/statsgen)
+
+]
+
+.footnote[All content is CC-BY. All art (unless otherwise noted) is by [Desirée De Leon](https://desiree.rbind.io/), CC-BY-NC-ND.]
+
+---
+
+
+
+.left-column[
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #17a2b8;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
+&lt;/span&gt; 
+]
+
+.right-column[
+
+# What is R Markdown?
+
+
+1. An authoring framework for data science.
+
+1. A document format (`.Rmd`).
+
+1. An R package named `rmarkdown`.
+
+1. A file format for making dynamic documents with R. 
+
+1. A tool for integrating prose, code, and results.
+
+1. A computational document.
+
+1. Wizardry.
+
+]
+
+---
+
+.left-column[
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
+&lt;/span&gt; 
+]
+
+.right-column[
+
+# What is R Markdown?
+
+1. ["An authoring framework for data science."](https://rmarkdown.rstudio.com/lesson-1.html) (✔️)
+
+1. [A document format (`.Rmd`).](https://bookdown.org/yihui/rmarkdown/) (✔️)
+
+1. [An R package named `rmarkdown`.](https://rmarkdown.rstudio.com/docs/) (✔️)
+
+1. ["A file format for making dynamic documents with R."](https://rmarkdown.rstudio.com/articles_intro.html) (✔️)
+
+1. ["A tool for integrating text, code, and results."](https://r4ds.had.co.nz/communicate-intro.html) (✔️)
+
+1. ["A computational document."](http://radar.oreilly.com/2011/07/wolframs-computational-documen.html) (✔️)
+
+1. Wizardry. (🧙‍♂️)
+
+]
+
+---
+class: middle, center
+
+# Change your mental model
+
+.pull-left[
+
+### Source &amp;harr; output
+
+&lt;img src="images/word.png" width="50%" /&gt;
+
+]
+
+.pull-right[
+
+### Source &amp;rarr; output
+
+&lt;img src="images/doc-base.png" width="50%" /&gt;
+
+]
+
+---
+class: middle, center
+
+# Change your mental model
+
+.pull-left[
+
+### Source &amp;harr; output
+
+&lt;img src="images/haba-elise.jpg" width="50%" /&gt;
+
+]
+
+.pull-right[
+
+### Source &amp;rarr; output
+
+&lt;img src="images/doll.png" width="50%" /&gt;
+
+]
+
+---
+background-image: url(images/welliewishers/Slide1.png)
+background-size: cover
+class: top, center
+
+.footnote[https://www.americangirl.com/shop/c/welliewishers]
+
+---
+background-image: url(images/welliewishers/Slide2.png)
+background-size: cover
+class: top, center
+
+.footnote[https://www.americangirl.com/shop/c/welliewishers]
+
+---
+class: middle, inverse, center
+
+# Same ~~doll~~ source
+
+# Different occasions
+
+---
+class: middle, center
+
+# `html_document`
+
+&lt;img src="images/doll.png" width="40%" /&gt;
+
+---
+class: your-turn
+
+# Your turn
+
+Find a partner and look at `01-explore.Rmd` together. 
+Look at the source, then 🧶 **Knit** to HTML.
+
+Try to identify these parts in the source and the output:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+
+1. The **output**
+
+**If this was easy**, try to find all code that produces a *plot*.
+
+_psst...`01-hello-alison.Rmd` is also there..._
+
+<div class="countdown" id="timer_5d87d322" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: live-code
+
+# Basic anatomy I
+
+We look at the source anatomy for `01-explore.Rmd` together:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+    
+---
+class: center, middle
+
+&lt;img src="images/Knit-to-html.jpg" width="50%" /&gt;
+
+---
+class: center, middle
+
+&lt;img src="images/doc-live.jpg" width="50%" /&gt;
+
+---
+class: live-code
+
+# Basic anatomy II
+
+We look at the output anatomy for `01-explore.Rmd` together:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+
+1. The **output**
+
+
+---
+background-image: url(images/rmarkdown_wizards.png)
+background-size: contain
+
+.footnote[Art by [Allison Horst](https://twitter.com/allison_horst?lang=en)]
+
+---
+class: middle, center
+
+# What is inside?
+
+![](images/doc-make.jpg)
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;1 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Metadata
+
+---
+
+# metadata: YAML
+
+.pull-left[
+
+_"YAML Ain't Markup Language"_
+
+
+```yaml
+---
+key: value
+---
+```
+
+]
+
+.pull-right[
+
+&lt;img src="images/orchestra.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: middle, center
+
+# Output options
+
+---
+
+# Save output options in your YAML
+
+.pull-left[
+
+```yaml
+---
+output: html_document
+---
+```
+
+```yaml
+---
+output:
+  html_document:
+    toc: true
+---
+```
+
+
+]
+
+.pull-right[
+
+&lt;img src="images/orchestra.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: your-turn
+
+# Your turn
+
+## Add output options to YAML
+
+Use `?html_document` from your R console to:
+
+1. Add a floating table of contents
+
+1. Add a theme
+
+🧶 **Knit** to HTML to see the output.
+
+**If this was easy**, try to embed the `Rmd` source code to download.
+
+_psst...answers on the next slide..._
+
+<div class="countdown" id="timer_5d87d1e8" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: your-turn
+
+# Answers
+
+```yaml
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_download: true
+---
+```
+
+---
+
+# Parameters
+
+```yaml
+---
+params:
+  name1: Alison
+  name2: Allison
+  sex: female
+---
+```
+
+---
+class: your-turn
+
+# Your turn
+
+## Change parameters &amp; knit again
+
+.pull-left[
+
+Change this:
+
+```yaml
+---
+params:
+  name1: Alison
+  name2: Allison
+  sex: female
+---
+```
+
+]
+
+.pull-right[
+
+To this:
+
+```yaml
+---
+params:
+  name1: pick a name...
+  name2: any name...
+  sex: pick male or female
+---
+```
+
+]
+
+_If this was easy_, try out "Knit with Parameters."
+
+.footnote[`sex` is coded as a binary variable in these datasets]
+
+<div class="countdown" id="timer_5d87d1a5" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: inverse, center, middle
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;2 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Text
+
+---
+
+# &lt;center&gt;Headers&lt;/center&gt;
+
+--
+
+.pull-left[
+```markdown
+# HEADER 1
+
+## HEADER 2
+
+### HEADER 3
+
+#### HEADER 4
+
+##### HEADER 5
+
+###### HEADER 6
+```
+]
+
+--
+
+.pull-right[
+# HEADER 1
+
+## HEADER 2
+
+### HEADER 3
+
+#### HEADER 4
+
+##### HEADER 5
+
+###### HEADER 6
+]
+
+---
+
+![](images/rmd-nav.png)
+
+---
+
+# &lt;center&gt;Text&lt;/center&gt;
+
+--
+
+.pull-left[
+```markdown
+Childhood **vaccines**  
+are one of the  
+_great triumphs_  
+of modern medicine. 
+```
+]
+
+--
+
+.pull-right[
+
+Childhood **vaccines**  
+are one of the  
+_great triumphs_  
+of modern medicine. 
+
+]
+
+---
+class: top
+
+# &lt;center&gt;Lists&lt;/center&gt;
+
+--
+
+.pull-left[
+
+```markdown
+Indeed, parents whose children are  
+vaccinated no longer have to worry about  
+their child's death or disability from:
+
+- whooping cough, 
+- polio, 
+- diphtheria, 
+- hepatitis, or 
+- a host of other infections.
+
+Vaccines are the most cost-effective health  
+care interventions there are. We have   
+three new, extremely effective vaccines to  
+roll out in developing countries:  
+
+1. pneumonia
+1. rotavirus
+1. meningitis A
+```
+
+]
+
+--
+
+.pull-right[
+
+Indeed, parents whose children are  
+vaccinated no longer have to worry about  
+their child's death or disability from:
+
+- whooping cough, 
+- polio, 
+- diphtheria, 
+- hepatitis, or 
+- a host of other infections.
+
+Vaccines are the most cost-effective health  
+care interventions there are. We have  
+three new, extremely effective vaccines to  
+roll out in developing countries:
+
+1. pneumonia
+1. rotavirus
+1. meningitis A
+
+]
+
+---
+
+# &lt;center&gt;Images&lt;/center&gt;
+
+--
+
+.pull-left[
+```markdown
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+```
+]
+
+--
+
+.pull-right[
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+]
+
+---
+
+# &lt;center&gt;Links&lt;/center&gt;
+
+--
+
+.pull-left[
+```markdown
+[Photo](https://en.wikipedia.org/wiki/Vaccine)
+
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+```
+]
+
+--
+
+.pull-right[
+[Photo](https://en.wikipedia.org/wiki/Vaccine)
+
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+]
+
+---
+name: 03-formative
+class: middle
+
+# Pop quiz
+
+--
+
+.pull-left[
+
+How do you add headers in Markdown?
+
+`! Header`
+
+`- Header`
+
+`# Header`
+
+`1. Header`
+
+]
+
+--
+
+.pull-right[
+
+What about lists? Bulleted? Numbered?
+
+`! Item 1`
+
+`- Item 1`
+
+`# Item 1`
+
+`1. Item 1`
+
+]
+
+---
+class: inverse, center, middle
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;3 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# &lt;i class="fab fa-r-project"&gt;&lt;/i&gt; code
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}
+namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+```
+````
+
+What is the fate of this chunk?
+
+]
+
+--
+
+.pull-right[
+
+
+```r
+namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+#&gt; # A tibble: 2 x 7
+#&gt; # Groups:   name [2]
+#&gt;   country  year sex    name        n    prop generation
+#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+#&gt; 1 oz       1979 female Alison   2936 0.00170 gen_x     
+#&gt; 2 oz       1995 female Allison  8126 0.00423 millenial
+```
+
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}
+topyears &lt;- namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+```
+````
+
+What fate do you predict here?
+
+]
+
+--
+
+.pull-right[
+
+
+```r
+topyears &lt;- namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+```
+
+  
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}
+topyears &lt;- namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+topyears
+```
+````
+
+]
+
+--
+
+.pull-right[
+
+
+```r
+topyears &lt;- namedata %&gt;% 
+  group_by(name) %&gt;% 
+  top_n(1, prop) 
+topyears
+#&gt; # A tibble: 2 x 7
+#&gt; # Groups:   name [2]
+#&gt;   country  year sex    name        n    prop generation
+#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
+#&gt; 1 oz       1979 female Alison   2936 0.00170 gen_x     
+#&gt; 2 oz       1995 female Allison  8126 0.00423 millenial
+```
+
+  
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}
+ggplot(namedata, 
+  aes(x = year, 
+      y = prop,  
+      group = name, 
+      color = name)) + 
+  geom_line()
+```
+````
+
+What about this one?
+
+]
+
+--
+
+.pull-right[
+
+
+```r
+ggplot(namedata, 
+  aes(x = year, 
+      y = prop,  
+      group = name, 
+      color = name)) + 
+  geom_line()
+```
+
+&lt;img src="01-basics_files/figure-html/unnamed-chunk-21-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Add chunks
+
+button or
+
+Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+
+Ctrl + Alt + `i` (Windows/Linux)
+
+---
+
+# Run chunks
+
+.pull-left[
+interactively (show button)
+]
+
+.pull-right[
+whole doc (knit button or run all chunks or )
+]
+
+---
+
+# Inline code
+
+.pull-left[
+
+Alison was most popular in 
+``` `r topyears %&gt;% pull(year) %&gt;% .[1]` ```
+
+]
+
+--
+
+.pull-right[
+
+Alison was most popular in 
+1979
+
+]
+
+---
+class: inverse, center, middle
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;4 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Output
+
+---
+
+# Chunk options
+
+.pull-left[
+
+````
+```{r}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+
+```r
+glimpse(namedata)
+#&gt; Observations: 176
+#&gt; Variables: 7
+#&gt; $ country    &lt;chr&gt; "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz",…
+#&gt; $ year       &lt;dbl&gt; 1928, 1928, 1929, 1929, 1930, 1930, 1931, 1931, 1932,…
+#&gt; $ sex        &lt;chr&gt; "female", "female", "female", "female", "female", "fe…
+#&gt; $ name       &lt;chr&gt; "Alison", "Allison", "Alison", "Allison", "Alison", "…
+#&gt; $ n          &lt;dbl&gt; 28, 22, 14, 13, 24, 17, 21, 16, 35, 21, 26, 15, 50, 2…
+#&gt; $ prop       &lt;dbl&gt; 2.342342e-05, 1.840411e-05, 1.209523e-05, 1.123129e-0…
+#&gt; $ generation &lt;chr&gt; "silent", "silent", "silent", "silent", "silent", "si…
+```
+
+]
+
+---
+
+# echo
+
+.pull-left[
+
+````
+```{r echo=FALSE}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+
+```
+#&gt; Observations: 176
+#&gt; Variables: 7
+#&gt; $ country    &lt;chr&gt; "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz",…
+#&gt; $ year       &lt;dbl&gt; 1928, 1928, 1929, 1929, 1930, 1930, 1931, 1931, 1932,…
+#&gt; $ sex        &lt;chr&gt; "female", "female", "female", "female", "female", "fe…
+#&gt; $ name       &lt;chr&gt; "Alison", "Allison", "Alison", "Allison", "Alison", "…
+#&gt; $ n          &lt;dbl&gt; 28, 22, 14, 13, 24, 17, 21, 16, 35, 21, 26, 15, 50, 2…
+#&gt; $ prop       &lt;dbl&gt; 2.342342e-05, 1.840411e-05, 1.209523e-05, 1.123129e-0…
+#&gt; $ generation &lt;chr&gt; "silent", "silent", "silent", "silent", "silent", "si…
+```
+
+]
+
+---
+
+# eval
+
+.pull-left[
+
+````
+```{r eval=FALSE}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+
+```r
+glimpse(namedata)
+```
+
+]
+
+---
+
+# include
+
+.pull-left[
+
+````
+```{r include=FALSE}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+
+
+]
+
+---
+
+# results
+
+.pull-left[
+
+````
+```{r echo=TRUE, results='hide'}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+
+```r
+glimpse(namedata)
+```
+
+]
+
+---
+
+# message / warning
+
+
+
+![](https://www.tidyverse.org/images/tidyverse_1.2.0/tidyverse_1-2-0_pkg_load.gif)
+
+
+
+---
+
+# message / warning
+
+.pull-left[
+
+````
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+````
+
+]
+
+.pull-right[
+
+
+```r
+library(tidyverse)
+```
+
+]
+
+---
+
+.left-column[
+# Default options
+]
+
+.right-column[
+
+```r
+str(knitr::opts_chunk$get())
+#&gt; List of 53
+#&gt;  $ eval         : logi TRUE
+#&gt;  $ echo         : logi TRUE
+#&gt;  $ results      : chr "markup"
+#&gt;  $ tidy         : logi FALSE
+#&gt;  $ tidy.opts    : NULL
+#&gt;  $ collapse     : logi TRUE
+#&gt;  $ prompt       : logi FALSE
+#&gt;  $ comment      : chr "#&gt;"
+#&gt;  $ highlight    : logi TRUE
+#&gt;  $ strip.white  : logi TRUE
+#&gt;  $ size         : chr "normalsize"
+#&gt;  $ background   : chr "#F7F7F7"
+#&gt;  $ cache        : logi FALSE
+#&gt;  $ cache.path   : chr "01-basics_cache/html/"
+#&gt;  $ cache.vars   : NULL
+#&gt;  $ cache.lazy   : logi TRUE
+#&gt;  $ dependson    : NULL
+#&gt;  $ autodep      : logi FALSE
+#&gt;  $ cache.rebuild: logi FALSE
+#&gt;  $ fig.keep     : chr "high"
+#&gt;  $ fig.show     : chr "asis"
+#&gt;  $ fig.align    : chr "default"
+#&gt;  $ fig.path     : chr "01-basics_files/figure-html/"
+#&gt;  $ dev          : chr "png"
+#&gt;  $ dev.args     : NULL
+#&gt;  $ dpi          : num 72
+#&gt;  $ fig.ext      : NULL
+#&gt;  $ fig.width    : num 7
+#&gt;  $ fig.height   : num 7
+#&gt;  $ fig.env      : chr "figure"
+#&gt;  $ fig.cap      : NULL
+#&gt;  $ fig.scap     : NULL
+#&gt;  $ fig.lp       : chr "fig:"
+#&gt;  $ fig.subcap   : NULL
+#&gt;  $ fig.pos      : chr ""
+#&gt;  $ out.width    : NULL
+#&gt;  $ out.height   : NULL
+#&gt;  $ out.extra    : NULL
+#&gt;  $ fig.retina   : num 1
+#&gt;  $ external     : logi TRUE
+#&gt;  $ sanitize     : logi FALSE
+#&gt;  $ interval     : num 1
+#&gt;  $ aniopts      : chr "controls,loop"
+#&gt;  $ warning      : logi TRUE
+#&gt;  $ error        : logi FALSE
+#&gt;  $ message      : logi TRUE
+#&gt;  $ render       : NULL
+#&gt;  $ ref.label    : NULL
+#&gt;  $ child        : NULL
+#&gt;  $ engine       : chr "R"
+#&gt;  $ split        : logi FALSE
+#&gt;  $ include      : logi TRUE
+#&gt;  $ purl         : logi TRUE
+```
+
+]
+
+---
+
+# Chunk option take-aways
+
++ Place between curly braces&lt;br&gt;`{r option=value}`
+
++ Multiple options separated by commas&lt;br&gt;`{r option1=value, option2=value}`
+
++ Careful! The `r` part is the **code engine** (other engines possible)
+
+---
+
+# Chunk labels
+
+.pull-left[
+
+````
+```{r peek, echo=FALSE, results='hide'}
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
++ Place between curly braces&lt;br&gt;`{r label}`
+
++ Separated options with commas&lt;br&gt;`{r label, option1=value}`
+
++ Careful! No duplicate chunk labels
+
+    ````
+    ```{r peek}
+    head(namedata)
+    ```
+    ````
+
+    ```
+    Error in parse_block(g[-1], g[1], params.src) : 
+      duplicate label 'peek'
+    Calls: &lt;Anonymous&gt; ... process_file -&gt; split_file -&gt; lapply -&gt; FUN -&gt; parse_block
+    Execution halted
+    ```
+
+]
+
+???
+
+how can we make it easier on ourselves to explore the code in here?
+
+show how to add chunk labels and view in IDE interactively
+
+---
+class: middle, center
+
+# Pet or livestock?
+
+.pull-left[
+
+![](https://cdn.images.express.co.uk/img/dynamic/128/590x/Barry-the-Lamb-770211.jpg)
+
+]
+
+.pull-right[
+
+![](images/christopher-burns-215Fiqh6hRc-unsplash.jpg)
+
+]
+
+.footnote[https://masalmon.eu/2017/08/08/chunkpets/; https://www.express.co.uk/news/nature/770211/pet-sheep-lamb-rasied-dog-farm-nature]
+
+---
+class: middle, center
+
+# A good chunk label
+
+.pull-left[
+
+### Good
+
+`my-plot`
+
+`myplot`
+
+`myplot1`
+
+`myplot-1`
+
+`MY-PLOT`
+
+]
+
+.pull-right[
+
+### Bad
+
+`my_plot`
+
+`my plot`
+
+everything else!
+
+]
+
+---
+
+# The setup chunk
+
+
+
+.pull-left[
+
+````
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#&gt;", 
+  out.width = "100%" 
+)
+```
+````
+
+]
+
+.pull-right[
+
++ A special chunk label: `setup`
+
++ Typically #1
+
++ All following chunks will use these options (i.e., sets global chunk options)
+
++ **Tip**: set `include=FALSE`
+
++ You can (and should) use individual chunk options too
+
+]
+
+---
+class: your-turn
+
+# Your turn
+
+## New data dump! 📰
+
+Data from other countries just came in &amp;mdash; you now have data from the US too!
+
+1. Read in `data/both_babies.csv`
+
+1. 🧶 **Knit** to HTML. Do you see data for both countries now?
+
+1. Clean up the chunks (split, combine, label, use options as you see fit)
+   + include false all analysis chunks
+   + echo false all plots
+   + add setup chunk
+
+1. Use the RStudio outline pane; rejoice!
+
+1. Try out "Knit with Parameters."
+
+__Not enough?__ See next slide for how to build a graphical user interface for parameters.
+
+_psst...`01-hello-alison.Rmd` is still there..._
+
+<div class="countdown" id="timer_5d87d21a" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: your-turn
+
+# Answers
+
+.pull-left[
+
+```yaml
+---
+params:
+  name1: emi
+  name2: sara
+  sex: female
+---
+```
+
+
+]
+
+.pull-right[
+
+```yaml
+---
+params:
+  name1: emi
+  name2: sara
+  palette:
+    input: select
+    label: 'sex:'
+    choices:
+    - female
+    - male
+    selected: female
+---
+```
+]
+
+---
+
+Add netlify drop right here...
+
+---
+class: middle, center
+
+# Take-aways
+
+--
+
+✔️ **Document your document:** use YAML to set up meaningful metadata
+
+--
+
+✔️ **Style your document:** use YAML to add options to your chosen output format
+
+--
+
+✔️ **Organize your text:** use markdown headers with `#`
+
+--
+
+✔️ **Organize your code:** use `knitr` chunk labels
+
+--
+
+✔️ **Style your text:** use markdown **bold**, _italics_, &lt;i class="fas fa-list-ul"&gt;&lt;/i&gt; bullets, and &lt;i class="fas fa-list-ol"&gt;&lt;/i&gt; lists
+
+--
+
+✔️ **Style your output:** use `knitr` chunk options
+
+--
+
+🧶 early, 🧶 often
+
+
+---
+class: middle, center
+
+# ⏱
+
+# Time for a break!
+
+<div class="countdown blink-colon noupdate-15" id="timer_5d87d339" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dracula",
+"highlightLanguage": ["r", "yaml", "markdown"],
+"slideNumberFormat": "",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

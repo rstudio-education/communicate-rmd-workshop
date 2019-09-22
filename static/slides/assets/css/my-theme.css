@@ -50,7 +50,7 @@ a:hover, a:active, a:focus {
 }
 
 .inverse {
-  background-color: #3b4245;
+  background-color: #17a2b8;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -126,8 +126,8 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 .title-slide {
   background-image: url(../../images/protea-banner.png);
   background-position: top;
-  background-size: 100%;
-  background-color: #3b4245;
+  background-size: contain;
+  background-color: #e7553c;
 }
 
 
@@ -254,11 +254,11 @@ div.my-footer span {
   color: #17A2B8;
 }
 
-.your-turn h1, .your-turn h2 {
-  color: #fff !important;
+.your-turn h1 {
+  color: #fff;
+  text-shadow: 1px 1px 2px #1f5386;
   font-size: 4em;
-  font-weight: 700 !important;
-  text-shadow: 1px 1px 1px #003b3c;
+  font-weight: 700;
 }
 
 .your-turn h1:before {
@@ -271,6 +271,11 @@ div.my-footer span {
     background-size: 100px;
     padding-right: 10px;
 }
+
+.your-turn h2, .your-turn h3 {
+  color: #17A2B8 !important;
+}
+
 
 h1#pop-quiz {
   color: #E7553C;
@@ -289,4 +294,35 @@ h1#pop-quiz:before {
 
 .fa-stack-1x {
 	font-family: Josefin Slab;
+}
+
+.live-code {
+  background-color: #1a1917;
+  color: #fff;
+}
+
+.live-code h1 {
+  color: #fff;
+  text-shadow: 1px 1px 2px #1f5386;
+  font-size: 3.5em;
+}
+
+.live-code h1:before {
+    content: "";
+    display: inline-block;
+    background: url("../Live-code.png") no-repeat;
+    width: 100px;
+    height: 100px;
+    float: left;
+    background-size: 100px;
+    padding-right: 50px;
+}
+
+.live-code .remark-inline-code {
+  color: #fff;
+}
+
+/* fix hljs output code color to have more contrast */
+.hljs-dracula .hljs-comment, .hljs-dracula .hljs-quote, .hljs-dracula .hljs-deletion, .hljs-dracula .hljs-meta {
+	color: #17A2B8;
 }

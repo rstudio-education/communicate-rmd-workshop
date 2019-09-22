@@ -19,6 +19,11 @@ output:
       beforeInit: "https://platform.twitter.com/widgets.js"
     includes:
       in_header: assets/header.html  
+params:
+  wifi_network: "tbd"
+  wifi_password: "tbd"
+  site_link: "https://ysc-rmarkdown.netlify.com/"
+  cloud_link: "tbd"
 ---
 
 ```{r setup, include=FALSE}
@@ -43,17 +48,12 @@ class: title-slide, center, middle
 
 ### `r rmarkdown::metadata$author` &#183; RStudio
 
-#### [rmd4medicine.netlify.com/](https://rmd4medicine.netlify.com/)
-
-
-<!-- this ends up being the title slide since seal = FALSE-->
+#### [`r params$site_link`](`r params$site_link`)
 
 ---
 layout: true
 
-<div class="my-footer"><span>rstudio.cloud/link</span></div>
-
-<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+<div class="my-footer"><span>`r params$site_link`</span></div>
 
 ---
 

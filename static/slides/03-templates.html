@@ -4,7 +4,7 @@
     <title>Templates</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
-    <meta name="date" content="2019-09-03" />
+    <meta name="date" content="2019-09-23" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
@@ -25,7 +25,7 @@ class: title-slide, center, middle
 
 &lt;span class="fa-stack fa-4x"&gt;
   &lt;i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"&gt;&lt;/i&gt;
-  &lt;strong class="fa-stack-1x" style="color:#3b4245;"&gt;03&lt;/strong&gt;
+  &lt;strong class="fa-stack-1x" style="color:#e7553c;"&gt;03&lt;/strong&gt;
 &lt;/span&gt; 
 
 # Templates
@@ -34,38 +34,187 @@ class: title-slide, center, middle
 
 ### Alison Hill &amp;#183; RStudio
 
-#### [rmd4medicine.netlify.com/](https://rmd4medicine.netlify.com/)
+#### [https://ysc-rmarkdown.netlify.com/](https://ysc-rmarkdown.netlify.com/)
 
-
-&lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
 ---
 layout: true
 
-&lt;div class="my-footer"&gt;&lt;span&gt;rstudio.cloud/link&lt;/span&gt;&lt;/div&gt;
+&lt;div class="my-footer"&gt;&lt;span&gt;https://ysc-rmarkdown.netlify.com/&lt;/span&gt;&lt;/div&gt;
 
-&lt;!-- this adds the link footer to all slides, depends on my-footer class in css--&gt;
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;1 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Templates
+
+---
+class: live-code
+
+# Demo using a template
+
++ The one that ships with `rmarkdown`
+  + _File &gt; New File &gt; R Markdown_; select "Document"
+
++ One from my package
+  + _File &gt; New File &gt; R Markdown_; select "From Template"
+
 
 ---
 what are we doing? We'll build a package first, then add some R Markdown templates
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;2 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Packages
+
+---
+class: live-code
+
+# Basic package anatomy
+
+- NAMESPACE
+- DESCRIPTION
+
+
+```r
+usethis::create_package(here::here())
+```
+
+---
+class: live-code
+
+# Basic template anatomy
+
++ `template.yaml`
++ `skeleton/skeleton.Rmd`
+
+
+```r
+usethis::use_rmarkdown_template("01-rmd")
+```
+
+---
+class: middle, inverse, center
+
+# DO NOT KNIT!
+
+Do not try to knit the skeleton.Rmd
+
+
+![](https://media.giphy.com/media/Vg6vGMxVs9Sve/giphy.gif)
+
+---
+class: your-turn
+
+# Your turn
+
+Open up my existing `01-rmd` template &amp;mdash; find in `inst/rmarkdown/templates/01-rmd`.
+
+1. Add your name and a title to this template. 
+1. Edit the YAML for the built-in `html_document` output format. Consider adding some of your favorite output options for the HTML format (theme? floating toc? parameters?)
+1. Edit the content. Add a good `knitr` setup chunk at the top.
+
+---
+class: live-code
+
+# Build package
+
+We build the package using "Install and Restart" and confirm we see it locally.
+
+---
+class: live-code
+
+# Use the template
+
+We demo creating a new project in RStudio and using the template there so as not to pollute our package project.
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;3 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Extension Formats
+
+---
+
+Now try creating a fresh template on your own, and use an extension output format like:
+
++ `distill::distill_article`
++ `bookdown::html_document2`
++ `xaringan::moon_reader`
++ `flexdashboard::flexdashboard`
+
+
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;4 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Custom Styles
+
+---
+
+now we talk about adding supporting files like a logo and css. See my `03-custom-rmd` template.
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;5 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Custom Formats
+
+---
+
+now we talk about adding supporting files like a logo and css. See my `04-custom-format` template.
 
 ---
 teaser at end re project templates
 ---
 class: middle, center, inverse
 
+# ⏱
 
-# Time to wrap-up!
+# Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d6f483e" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown blink-colon noupdate-15" id="timer_5d87d1db" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "tomorrow-night-eighties",
+"highlightStyle": "dracula",
 "highlightLanguage": ["r", "yaml", "markdown"],
 "slideNumberFormat": "",
 "highlightLines": true,

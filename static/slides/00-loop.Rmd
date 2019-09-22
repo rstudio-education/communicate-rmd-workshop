@@ -1,6 +1,6 @@
 ---
 title: "Welcome"
-subtitle: "R Markdown for Medicine"
+subtitle: "Young Statisticians Conference 2019"
 author: Alison Hill
 date: "`r Sys.Date()`"
 output:

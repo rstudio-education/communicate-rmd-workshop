@@ -1,0 +1,1341 @@
+---
+title: "R Markdown Basics"
+session: "01"
+subtitle: "Young Statisticians Conference 2019"
+author: Alison Hill
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/css/my-theme.css", "assets/css/my-fonts.css"]
+    seal: false 
+    lib_dir: libs
+    nature:
+      highlightStyle: dracula
+      highlightLanguage: ["r", "yaml", "markdown"]
+      slideNumberFormat: "" 
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    includes:
+      in_header: assets/header.html  
+params:
+  wifi_network: "tbd"
+  wifi_password: "tbd"
+  site_link: "https://ysc-rmarkdown.netlify.com/"
+  cloud_link: "tbd"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+episode_counter <- 0
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#>"
+)
+```
+
+```{r packages, include=FALSE}
+library(countdown)
+library(ymlthis)
+library(tidyverse)
+library(bakeoff)
+library(extrafont)
+# update those defaults
+update_font_defaults <- function(font_choice = "Lato") {
+
+    ggplot2::update_geom_defaults("text", list(family = font_choice))
+    ggplot2::update_geom_defaults("label", list(family = font_choice))
+    
+}
+
+theme_bakeoff <- function(font_choice = "Lato"){ 
+  
+  update_font_defaults()
+  
+  ggplot2::theme_minimal(base_family = font_choice)
+  
+}
+ggplot2::theme_set(theme_bakeoff())
+```
+
+```{r alison, include=FALSE}
+namedata <- read_csv(here::here("static/slides/data/alison-in-oz.csv"))
+```
+
+
+class: title-slide, center, middle
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"></i>
+  <strong class="fa-stack-1x" style="color:#e7553c;">`r rmarkdown::metadata$session`</strong>
+</span> 
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$subtitle`
+
+### `r rmarkdown::metadata$author` &#183; RStudio
+
+#### [`r params$site_link`](`r params$site_link`)
+
+
+---
+class: middle, center
+
+.pull-left[
+# <i class="fas fa-wifi"></i>
+
+Wifi network name  
+
+`r params$wifi_network`
+
+]
+
+.pull-left[
+# <i class="fas fa-key"></i>
+
+Wifi password
+
+`r params$wifi_password`
+
+]
+
+---
+class: middle, center
+
+# <i class="fas fa-cloud"></i>
+
+# Go here and log in (free):
+
+[`r params$cloud_link`](`r params$cloud_link`)
+
+---
+class: middle, center
+
+| Time          | Activity                                                      |
+|:--------------|:--------------------------------------------------------------|
+| 09:00 - 10:30 | Session 1 (R Markdown Basics)                                 |
+| 10:30 - 10:45 | *Break* :tea:                                                 |
+| 10:45 - 12:15 | Session 2 (Output Formats & Version Control)                  |
+| 12:15 - 01:15 | *Lunch* :bento:                                               |
+| 01:15 - 02:45 | Session 3 (Templates)                                         |
+| 02:45 - 03:00 | *Break* :tea:                                                 |
+| 03:00 - 04:30 | Session 4 (Collections)                                       |
+
+---
+layout: true
+
+<div class="my-footer"><span>`r params$site_link`</span></div>
+
+---
+background-image: url(images/hello.jpg)
+background-position: top center
+background-size: 100%
+class: middle, center
+
+.pull-left[
+### Alison Hill  
+[<i class="fab fa-github"></i> @apreshill](https://github.com/apreshill)  
+[<i class="fab fa-twitter"></i> @apreshill](https://twitter.com/apreshill)
+
+]
+
+.pull-right[
+### Emi Tanaka  
+[<i class="fab fa-github"></i> @emitanaka](https://github.com/emitanaka)  
+[<i class="fab fa-twitter"></i> @statsgen](https://twitter.com/statsgen)
+
+]
+
+.footnote[All content is CC-BY. All art (unless otherwise noted) is by [Desirée De Leon](https://desiree.rbind.io/), CC-BY-NC-ND.]
+
+---
+
+```{r child="what-is-rmd.Rmd"}
+
+```
+
+---
+
+.left-column[
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"></i>
+  <strong class="fa-stack-1x" style="color: #fff;">?</strong>
+</span> 
+]
+
+.right-column[
+
+# What is R Markdown?
+
+1. ["An authoring framework for data science."](https://rmarkdown.rstudio.com/lesson-1.html) (`r emo::ji("heavy_check_mark")`)
+
+1. [A document format (`.Rmd`).](https://bookdown.org/yihui/rmarkdown/) (`r emo::ji("heavy_check_mark")`)
+
+1. [An R package named `rmarkdown`.](https://rmarkdown.rstudio.com/docs/) (`r emo::ji("heavy_check_mark")`)
+
+1. ["A file format for making dynamic documents with R."](https://rmarkdown.rstudio.com/articles_intro.html) (`r emo::ji("heavy_check_mark")`)
+
+1. ["A tool for integrating text, code, and results."](https://r4ds.had.co.nz/communicate-intro.html) (`r emo::ji("heavy_check_mark")`)
+
+1. ["A computational document."](http://radar.oreilly.com/2011/07/wolframs-computational-documen.html) (`r emo::ji("heavy_check_mark")`)
+
+1. Wizardry. (`r emo::ji("wizard")`)
+
+]
+
+---
+class: middle, center
+
+# Change your mental model
+
+.pull-left[
+
+### Source &harr; output
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/word.png")
+```
+
+]
+
+.pull-right[
+
+### Source &rarr; output
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/doc-base.png")
+```
+
+]
+
+---
+class: middle, center
+
+# Change your mental model
+
+.pull-left[
+
+### Source &harr; output
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/haba-elise.jpg")
+```
+
+]
+
+.pull-right[
+
+### Source &rarr; output
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/doll.png")
+```
+
+]
+
+---
+background-image: url(images/welliewishers/Slide1.png)
+background-size: cover
+class: top, center
+
+.footnote[https://www.americangirl.com/shop/c/welliewishers]
+
+---
+background-image: url(images/welliewishers/Slide2.png)
+background-size: cover
+class: top, center
+
+.footnote[https://www.americangirl.com/shop/c/welliewishers]
+
+---
+class: middle, inverse, center
+
+# Same ~~doll~~ source
+
+# Different occasions
+
+---
+class: middle, center
+
+# `html_document`
+
+```{r echo=FALSE, out.width="40%"}
+knitr::include_graphics("images/doll.png")
+```
+
+---
+class: your-turn
+
+# Your turn
+
+Find a partner and look at `01-explore.Rmd` together. 
+Look at the source, then `r emo::ji("yarn")` **Knit** to HTML.
+
+Try to identify these parts in the source and the output:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+
+1. The **output**
+
+**If this was easy**, try to find all code that produces a *plot*.
+
+_psst...`01-hello-alison.Rmd` is also there..._
+
+```{r echo = FALSE}
+countdown(minutes = 5)
+```
+
+---
+class: live-code
+
+# Basic anatomy I
+
+We look at the source anatomy for `01-explore.Rmd` together:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+    
+---
+class: center, middle
+
+```{r knit-html, echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/Knit-to-html.jpg")
+```
+
+---
+class: center, middle
+
+```{r do-live, echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/doc-live.jpg")
+```
+
+---
+class: live-code
+
+# Basic anatomy II
+
+We look at the output anatomy for `01-explore.Rmd` together:
+
+1. The **metadata**
+
+1. The **text** 
+
+1. The **code**
+
+1. The **output**
+
+
+---
+background-image: url(images/rmarkdown_wizards.png)
+background-size: contain
+
+.footnote[Art by [Allison Horst](https://twitter.com/allison_horst?lang=en)]
+
+---
+class: middle, center
+
+# What is inside?
+
+![](images/doc-make.jpg)
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Metadata
+
+---
+
+# metadata: YAML
+
+.pull-left[
+
+_"YAML Ain't Markup Language"_
+
+
+```yaml
+---
+key: value
+---
+```
+
+]
+
+.pull-right[
+
+```{r echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("images/orchestra.jpg")
+```
+
+]
+
+---
+class: middle, center
+
+# Output options
+
+---
+
+# Save output options in your YAML
+
+.pull-left[
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_output(html_document()) %>% 
+  asis_yaml_output()
+```
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_output(html_document(toc = TRUE)) %>% 
+  asis_yaml_output()
+```
+
+
+]
+
+.pull-right[
+
+```{r echo=FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("images/orchestra.jpg")
+```
+
+]
+
+---
+class: your-turn
+
+# Your turn
+
+## Add output options to YAML
+
+Use `?html_document` from your R console to:
+
+1. Add a floating table of contents
+
+1. Add a theme
+
+`r emo::ji("yarn")` **Knit** to HTML to see the output.
+
+**If this was easy**, try to embed the `Rmd` source code to download.
+
+_psst...answers on the next slide..._
+
+```{r echo = FALSE}
+countdown(minutes = 3)
+```
+
+---
+class: your-turn
+
+# Answers
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_output(html_document(toc = TRUE,
+                           toc_float = TRUE,
+                           theme = "flatly",
+                           code_download = TRUE)) %>% 
+  asis_yaml_output()
+```
+
+---
+
+# Parameters
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_params(
+    name1 = "Alison",
+    name2 = "Allison",
+    sex = "female"
+    ) %>% 
+  asis_yaml_output()
+```
+
+---
+class: your-turn
+
+# Your turn
+
+## Change parameters & knit again
+
+.pull-left[
+
+Change this:
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_params(
+    name1 = "Alison",
+    name2 = "Allison",
+    sex = "female"
+    ) %>% 
+  asis_yaml_output()
+```
+
+]
+
+.pull-right[
+
+To this:
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_params(
+    name1 = "pick a name...",
+    name2 = "any name...",
+    sex = "pick male or female"
+    ) %>% 
+  asis_yaml_output()
+```
+
+]
+
+_If this was easy_, try out "Knit with Parameters."
+
+.footnote[`sex` is coded as a binary variable in these datasets]
+
+```{r echo = FALSE}
+countdown(minutes = 3)
+```
+
+---
+class: inverse, center, middle
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Text
+
+---
+
+# <center>Headers</center>
+
+--
+
+.pull-left[
+```markdown
+# HEADER 1
+
+## HEADER 2
+
+### HEADER 3
+
+#### HEADER 4
+
+##### HEADER 5
+
+###### HEADER 6
+```
+]
+
+--
+
+.pull-right[
+# HEADER 1
+
+## HEADER 2
+
+### HEADER 3
+
+#### HEADER 4
+
+##### HEADER 5
+
+###### HEADER 6
+]
+
+---
+
+![](images/rmd-nav.png)
+
+---
+
+# <center>Text</center>
+
+--
+
+.pull-left[
+```markdown
+Childhood **vaccines**  
+are one of the  
+_great triumphs_  
+of modern medicine. 
+```
+]
+
+--
+
+.pull-right[
+
+Childhood **vaccines**  
+are one of the  
+_great triumphs_  
+of modern medicine. 
+
+]
+
+---
+class: top
+
+# <center>Lists</center>
+
+--
+
+.pull-left[
+
+```markdown
+Indeed, parents whose children are  
+vaccinated no longer have to worry about  
+their child's death or disability from:
+
+- whooping cough, 
+- polio, 
+- diphtheria, 
+- hepatitis, or 
+- a host of other infections.
+
+Vaccines are the most cost-effective health  
+care interventions there are. We have   
+three new, extremely effective vaccines to  
+roll out in developing countries:  
+
+1. pneumonia
+1. rotavirus
+1. meningitis A
+```
+
+]
+
+--
+
+.pull-right[
+
+Indeed, parents whose children are  
+vaccinated no longer have to worry about  
+their child's death or disability from:
+
+- whooping cough, 
+- polio, 
+- diphtheria, 
+- hepatitis, or 
+- a host of other infections.
+
+Vaccines are the most cost-effective health  
+care interventions there are. We have  
+three new, extremely effective vaccines to  
+roll out in developing countries:
+
+1. pneumonia
+1. rotavirus
+1. meningitis A
+
+]
+
+---
+
+# <center>Images</center>
+
+--
+
+.pull-left[
+```markdown
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+```
+]
+
+--
+
+.pull-right[
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+]
+
+---
+
+# <center>Links</center>
+
+--
+
+.pull-left[
+```markdown
+[Photo](https://en.wikipedia.org/wiki/Vaccine)
+
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+```
+]
+
+--
+
+.pull-right[
+[Photo](https://en.wikipedia.org/wiki/Vaccine)
+
+Receiving rubella vaccination, Brazil, 2008.
+![](http://bit.ly/VaccineBySandraRugio)
+]
+
+---
+name: 03-formative
+class: middle
+
+# Pop quiz
+
+--
+
+.pull-left[
+
+How do you add headers in Markdown?
+
+`! Header`
+
+`- Header`
+
+`# Header`
+
+`1. Header`
+
+]
+
+--
+
+.pull-right[
+
+What about lists? Bulleted? Numbered?
+
+`! Item 1`
+
+`- Item 1`
+
+`# Item 1`
+
+`1. Item 1`
+
+]
+
+---
+class: inverse, center, middle
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# <i class="fab fa-r-project"></i> code
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}`r ''`
+namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+```
+````
+
+What is the fate of this chunk?
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+```
+
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}`r ''`
+topyears <- namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+```
+````
+
+What fate do you predict here?
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+topyears <- namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+```
+
+  
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}`r ''`
+topyears <- namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+topyears
+```
+````
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+topyears <- namedata %>% 
+  group_by(name) %>% 
+  top_n(1, prop) 
+topyears
+```
+
+  
+]
+
+---
+
+# Code chunks
+
+.pull-left[
+
+````
+```{r}`r ''`
+ggplot(namedata, 
+  aes(x = year, 
+      y = prop,  
+      group = name, 
+      color = name)) + 
+  geom_line()
+```
+````
+
+What about this one?
+
+]
+
+--
+
+.pull-right[
+
+```{r fig.retina=3, out.width="70%", fig.align='center'}
+ggplot(namedata, 
+  aes(x = year, 
+      y = prop,  
+      group = name, 
+      color = name)) + 
+  geom_line()
+```
+
+]
+
+---
+
+# Add chunks
+
+button or
+
+Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+
+Ctrl + Alt + `i` (Windows/Linux)
+
+---
+
+# Run chunks
+
+.pull-left[
+interactively (show button)
+]
+
+.pull-right[
+whole doc (knit button or run all chunks or )
+]
+
+---
+
+# Inline code
+
+.pull-left[
+
+Alison was most popular in 
+``` `r knitr::inline_expr('topyears %>% pull(year) %>% .[1]')` ```
+
+]
+
+--
+
+.pull-right[
+
+Alison was most popular in 
+`r topyears %>% pull(year) %>% .[1]`
+
+]
+
+---
+class: inverse, center, middle
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Output
+
+---
+
+# Chunk options
+
+.pull-left[
+
+````
+```{r}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+```{r}
+glimpse(namedata)
+```
+
+]
+
+---
+
+# echo
+
+.pull-left[
+
+````
+```{r echo=FALSE}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+glimpse(namedata)
+```
+
+]
+
+---
+
+# eval
+
+.pull-left[
+
+````
+```{r eval=FALSE}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+```{r eval=FALSE}
+glimpse(namedata)
+```
+
+]
+
+---
+
+# include
+
+.pull-left[
+
+````
+```{r include=FALSE}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+```{r include=FALSE}
+glimpse(namedata)
+```
+
+]
+
+---
+
+# results
+
+.pull-left[
+
+````
+```{r echo=TRUE, results='hide'}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
+```{r echo=TRUE, results='hide'}
+glimpse(namedata)
+```
+
+]
+
+---
+
+# message / warning
+
+
+
+![](https://www.tidyverse.org/images/tidyverse_1.2.0/tidyverse_1-2-0_pkg_load.gif)
+
+
+
+---
+
+# message / warning
+
+.pull-left[
+
+````
+```{r message=FALSE, warning=FALSE}`r ''`
+library(tidyverse)
+```
+````
+
+]
+
+.pull-right[
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+]
+
+---
+
+.left-column[
+# Default options
+]
+
+.right-column[
+```{r}
+str(knitr::opts_chunk$get())
+```
+
+]
+
+---
+
+# Chunk option take-aways
+
++ Place between curly braces<br>`{r option=value}`
+
++ Multiple options separated by commas<br>`{r option1=value, option2=value}`
+
++ Careful! The `r` part is the **code engine** (other engines possible)
+
+---
+
+# Chunk labels
+
+.pull-left[
+
+````
+```{r peek, echo=FALSE, results='hide'}`r ''`
+glimpse(namedata)
+```
+````
+
+]
+
+.pull-right[
+
++ Place between curly braces<br>`{r label}`
+
++ Separated options with commas<br>`{r label, option1=value}`
+
++ Careful! No duplicate chunk labels
+
+    ````
+    ```{r peek}`r ''`
+    head(namedata)
+    ```
+    ````
+
+    ```
+    Error in parse_block(g[-1], g[1], params.src) : 
+      duplicate label 'peek'
+    Calls: <Anonymous> ... process_file -> split_file -> lapply -> FUN -> parse_block
+    Execution halted
+    ```
+
+]
+
+???
+
+how can we make it easier on ourselves to explore the code in here?
+
+show how to add chunk labels and view in IDE interactively
+
+---
+class: middle, center
+
+# Pet or livestock?
+
+.pull-left[
+
+![](https://cdn.images.express.co.uk/img/dynamic/128/590x/Barry-the-Lamb-770211.jpg)
+
+]
+
+.pull-right[
+
+![](images/christopher-burns-215Fiqh6hRc-unsplash.jpg)
+
+]
+
+.footnote[https://masalmon.eu/2017/08/08/chunkpets/; https://www.express.co.uk/news/nature/770211/pet-sheep-lamb-rasied-dog-farm-nature]
+
+---
+class: middle, center
+
+# A good chunk label
+
+.pull-left[
+
+### Good
+
+`my-plot`
+
+`myplot`
+
+`myplot1`
+
+`myplot-1`
+
+`MY-PLOT`
+
+]
+
+.pull-right[
+
+### Bad
+
+`my_plot`
+
+`my plot`
+
+everything else!
+
+]
+
+---
+
+# The setup chunk
+
+
+
+.pull-left[
+
+````
+```{r setup, include=FALSE}`r ''`
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#>", 
+  out.width = "100%" 
+)
+```
+````
+
+]
+
+.pull-right[
+
++ A special chunk label: `setup`
+
++ Typically #1
+
++ All following chunks will use these options (i.e., sets global chunk options)
+
++ **Tip**: set `include=FALSE`
+
++ You can (and should) use individual chunk options too
+
+]
+
+---
+class: your-turn
+
+# Your turn
+
+## New data dump! `r emo::ji("newspaper")`
+
+Data from other countries just came in &mdash; you now have data from the US too!
+
+1. Read in `data/both_babies.csv`
+
+1. `r emo::ji("yarn")` **Knit** to HTML. Do you see data for both countries now?
+
+1. Clean up the chunks (split, combine, label, use options as you see fit)
+   + include false all analysis chunks
+   + echo false all plots
+   + add setup chunk
+
+1. Use the RStudio outline pane; rejoice!
+
+1. Try out "Knit with Parameters."
+
+__Not enough?__ See next slide for how to build a graphical user interface for parameters.
+
+_psst...`01-hello-alison.Rmd` is still there..._
+
+```{r echo = FALSE}
+countdown(minutes = 5)
+```
+
+---
+class: your-turn
+
+# Answers
+
+.pull-left[
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_params(
+    name1 = "emi",
+    name2 = "sara",
+    sex = "female"
+    ) %>% 
+  asis_yaml_output()
+```
+
+
+]
+
+.pull-right[
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_params(
+    name1 = "emi",
+    name2 = "sara",
+    palette = shiny_select("sex:", 
+                           choices = c("female", "male"), 
+                           selected = "female", 
+                           multiple = FALSE)
+  ) %>% 
+  asis_yaml_output()
+```
+]
+
+---
+
+Add netlify drop right here...
+
+---
+class: middle, center
+
+# Take-aways
+
+--
+
+`r emo::ji("heavy_check_mark")` **Document your document:** use YAML to set up meaningful metadata
+
+--
+
+`r emo::ji("heavy_check_mark")` **Style your document:** use YAML to add options to your chosen output format
+
+--
+
+`r emo::ji("heavy_check_mark")` **Organize your text:** use markdown headers with `#`
+
+--
+
+`r emo::ji("heavy_check_mark")` **Organize your code:** use `knitr` chunk labels
+
+--
+
+`r emo::ji("heavy_check_mark")` **Style your text:** use markdown **bold**, _italics_, <i class="fas fa-list-ul"></i> bullets, and <i class="fas fa-list-ol"></i> lists
+
+--
+
+`r emo::ji("heavy_check_mark")` **Style your output:** use `knitr` chunk options
+
+--
+
+`r emo::ji("yarn")` early, `r emo::ji("yarn")` often
+
+
+---
+class: middle, center
+
+# `r emo::ji("stopwatch")`
+
+# Time for a break!
+
+```{r echo = FALSE}
+countdown(minutes = 30, update_every = 15)
+```
+
+

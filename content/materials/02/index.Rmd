@@ -1,5 +1,5 @@
 ---
-title: 'Session 02: Project Workflows'
+title: 'Session 02: Advanced R Markdown'
 draft: false
 event: 'Young Statisticians Conference 2019'
 event_url: https://ysc2019.netlify.com/#workshop
@@ -18,15 +18,17 @@ links:
 - icon: images
   icon_pack: fas
   name: slides
-  url: /slides/02-proj-workflows.html
+  url: /slides/02-advanced.html
 ---
 
 
 ```{r echo=FALSE}
-knitr::include_url("/slides/02-proj-workflows.html")
+knitr::include_url("/slides/02-advanced.html")
 ```
 
-# Relevant resources
+# Topics
 
-+ [R4DS R Markdown formats](https://r4ds.had.co.nz/r-markdown-formats.html)
-+ [R Markdown: The Definitive Guide on output formats](https://bookdown.org/yihui/rmarkdown/output-formats.html)
++ Parameterized reports
++ R Markdown from the command line
++ Version controlled projects
++ Extension formats

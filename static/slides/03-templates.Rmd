@@ -10,7 +10,7 @@ output:
     seal: false 
     lib_dir: libs
     nature:
-      highlightStyle: tomorrow-night-eighties
+      highlightStyle: dracula
       highlightLanguage: ["r", "yaml", "markdown"]
       slideNumberFormat: "" 
       highlightLines: true
@@ -19,14 +19,25 @@ output:
       beforeInit: "https://platform.twitter.com/widgets.js"
     includes:
       in_header: assets/header.html  
+params:
+  wifi_network: "tbd"
+  wifi_password: "tbd"
+  site_link: "https://ysc-rmarkdown.netlify.com/"
+  cloud_link: "tbd"
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+episode_counter <- 0
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#>"
+)
 ```
 
 ```{r packages, include=FALSE}
 library(countdown)
+library(ymlthis)
 ```
 
 
@@ -34,7 +45,7 @@ class: title-slide, center, middle
 
 <span class="fa-stack fa-4x">
   <i class="fa fa-circle fa-stack-2x" style="color: #ffffffcc;"></i>
-  <strong class="fa-stack-1x" style="color:#3b4245;">`r rmarkdown::metadata$session`</strong>
+  <strong class="fa-stack-1x" style="color:#e7553c;">`r rmarkdown::metadata$session`</strong>
 </span> 
 
 # `r rmarkdown::metadata$title`
@@ -43,31 +54,178 @@ class: title-slide, center, middle
 
 ### `r rmarkdown::metadata$author` &#183; RStudio
 
-#### [rmd4medicine.netlify.com/](https://rmd4medicine.netlify.com/)
+#### [`r params$site_link`](`r params$site_link`)
 
-
-<!-- this ends up being the title slide since seal = FALSE-->
 
 ---
 layout: true
 
-<div class="my-footer"><span>rstudio.cloud/link</span></div>
+<div class="my-footer"><span>`r params$site_link`</span></div>
 
-<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Templates
+
+---
+class: live-code
+
+# Demo using a template
+
++ The one that ships with `rmarkdown`
+  + _File > New File > R Markdown_; select "Document"
+
++ One from my package
+  + _File > New File > R Markdown_; select "From Template"
+
 
 ---
 what are we doing? We'll build a package first, then add some R Markdown templates
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Packages
+
+---
+class: live-code
+
+# Basic package anatomy
+
+- NAMESPACE
+- DESCRIPTION
+
+```{r eval=FALSE}
+usethis::create_package(here::here())
+```
+
+---
+class: live-code
+
+# Basic template anatomy
+
++ `template.yaml`
++ `skeleton/skeleton.Rmd`
+
+```{r eval=FALSE}
+usethis::use_rmarkdown_template("01-rmd")
+```
+
+---
+class: middle, inverse, center
+
+# DO NOT KNIT!
+
+Do not try to knit the skeleton.Rmd
+
+
+![](https://media.giphy.com/media/Vg6vGMxVs9Sve/giphy.gif)
+
+---
+class: your-turn
+
+# Your turn
+
+Open up my existing `01-rmd` template &mdash; find in `inst/rmarkdown/templates/01-rmd`.
+
+1. Add your name and a title to this template. 
+1. Edit the YAML for the built-in `html_document` output format. Consider adding some of your favorite output options for the HTML format (theme? floating toc? parameters?)
+1. Edit the content. Add a good `knitr` setup chunk at the top.
+
+---
+class: live-code
+
+# Build package
+
+We build the package using "Install and Restart" and confirm we see it locally.
+
+---
+class: live-code
+
+# Use the template
+
+We demo creating a new project in RStudio and using the template there so as not to pollute our package project.
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Extension Formats
+
+---
+
+Now try creating a fresh template on your own, and use an extension output format like:
+
++ `distill::distill_article`
++ `bookdown::html_document2`
++ `xaringan::moon_reader`
++ `flexdashboard::flexdashboard`
+
+
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Custom Styles
+
+---
+
+now we talk about adding supporting files like a logo and css. See my `03-custom-rmd` template.
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Custom Formats
+
+---
+
+now we talk about adding supporting files like a logo and css. See my `04-custom-format` template.
 
 ---
 teaser at end re project templates
 ---
 class: middle, center, inverse
 
+# `r emo::ji("stopwatch")`
 
-# Time to wrap-up!
+# Time for a break!
 
 ```{r echo = FALSE}
-countdown(minutes = 15, update_every = 15)
+countdown(minutes = 30, update_every = 15)
 ```
 
 
