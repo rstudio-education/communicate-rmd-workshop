@@ -1,7 +1,6 @@
 ---
 authors:
 - alison
-bio: Alison Hill is a Data Scientist & Professional Educator at RStudio. Prior to joining RStudio, Dr. Hill was an Associate Professor and Center Director at Oregon Health & Science University in Portland, Oregon, where she was an NIH-funded Principal Investigator. Her work has been published in Pediatrics, Autism Research, and other peer-reviewed journals.
 education:
   courses:
   - course: PhD in Developmental Psychology & Quantitative Methods
@@ -54,14 +53,4 @@ user_groups:
 ---
 
 
-Alison Hill is a Data Scientist & Professional Educator at RStudio.
-Prior to joining RStudio, Dr. Hill was an Associate Professor and Center
-Assistant Director at Oregon Health & Science University in Portland, Oregon,
-where she was an NIH-funded Principal Investigator. Her
-[work](https://profiles.impactstory.org/u/0000-0002-8082-1890) has been
-published in
-[Pediatrics](https://alison.rbind.io/publication/2015-obesity-in-asd-multisite/),
-[Autism
-Research](https://alison.rbind.io/publication/2016-uh-and-um-asd-sli/),
-and [other peer-reviewed
-journals](https://alison.rbind.io/publication/#2).
+Alison Hill is a Data Scientist & Professional Educator at RStudio. Prior to joining RStudio, she was an Assistant Professor at Arizona State University, and an Associate Professor at Oregon Health & Science University (OHSU). Alison is one of the keynote speakers at the 2019 Young Statisticians Conference. She regularly leads workshops and develops online learning materials on topics like reproducible research, machine learning, and data visualization. She is also a co-author of the book [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/). Alison lives in Portland, Oregon with her husband and young daughter.

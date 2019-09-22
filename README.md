@@ -56,94 +56,28 @@ Where to go?
 
 ## Overview
 
-In this four-hour workshop, I will take you on a tour of how to get from
-data to manuscript using R Markdown. Starting with a mock clinical trial
-dataset, we’ll use R Markdown to combine prose, R code, and figures and
-tables created with R code into a nicely formatted and reproducible
-final manuscript.
-
-We’ll work on template R Markdown documents from four different “phases”
-of our mock clinical trial research project: an exploratory data
-analysis, a progress report, a draft manuscript, and a final paper.
-Along the way, we’ll learn about the basics of working with R Markdown
-and how to include tables, data, and graphics.
-
-## Learning objectives
-
-Attendees will learn how to:
-
-1.  Identify the basic anatomy of an R Markdown document. *(session 1)*
-
-2.  Make and knit an R Markdown document. *(session 1)*
-
-3.  Add text, R code, and output to an R Markdown document. *(session
-    1)*
-
-4.  Change the output format of an R Markdown document. *(session 2)*
-
-5.  Use R code to create tables summarizing participants (i.e., a “Table
-    One”) and statistical analyses within an R Markdown document.
-    *(session 2)*
-
-6.  Organize files and set up file paths when working in an R Markdown
-    project. *(session 3)*
-
-7.  Avoid growing pains as your R Markdown project evolves alongside
-    your research project. *(session 3)*
-
-8.  Export your figures and tables to a place you can find on your
-    computer so you can share and re-use them. *(session 3)*
-
-9.  Embed figures generated from R code in an R Markdown document,
-    including multi-panel plots. *(session 4)*
-
-10. Control how your figures look using `knitr` code chunk options,
-    captions, and cross-references. *(session 4)*
-
-11. Expand into new output formats like powerpoint presentations,
-    conference posters, etc.- all built with R Markdown as the
-    foundation *(wrap-up)*
-
-## Is this course for me?
-
-This introductory workshop is targeted at people who work in the medical
-field who either don’t know or currently use R Markdown, or perhaps know
-the basics but aren’t sure how R Markdown can fit into their research
-workflow. No prior experience with R Markdown is required.
-
-  - Have you written or collaborated on a medical manuscript to submit
-    for publication to a peer-reviewed journal? Are you familiar with
-    common components of a medical manuscript like a “Table One”, other
-    summary tables, plots, text and citations?
-
-  - Have you downloaded and used R a bit? Can you install and load
-    packages?
-    
-      - *Even better,* have you used `tidyverse` packages like `ggplot2`
-        and `dplyr`?
-
-  - Have you used R with the RStudio Integrated Development Environment
-    (IDE)? Are you familiar with the various “panes” and “tabs”? For
-    instance, can you quickly find all objects in your current global
-    environment, and can you send R code from a source file (.R, .Rmd)
-    to the console?
-    
-      - *Even better,* have you tried to knit 🧶 an R Markdown document
-        to some kind of output format like HTML, PDF, or Word?
+In this full-day workshop, you’ll learn how to get more out of R
+Markdown (and friends). We will demystify how R Markdown works under the
+hood. You will learn practical tools and workflows to increase your
+efficiency and productivity using R Markdown (including RStudio IDE
+features and templates), while learning how to use some extension
+packages along the way. We assume that you have knit an R Markdown
+document before, but you don’t need to be an advanced R Markdown user to
+take this workshop.
 
 ## Instructor
 
-Alison Hill is a Data Scientist & Professional Educator at RStudio.
-Prior to joining RStudio, Dr. Hill was an Associate Professor and Center
-Assistant Director at Oregon Health & Science University in Portland,
-Oregon, where she was an NIH-funded Principal Investigator. Her
-[work](https://profiles.impactstory.org/u/0000-0002-8082-1890) has been
-published in
-[Pediatrics](https://alison.rbind.io/publication/2015-obesity-in-asd-multisite/),
-[Autism
-Research](https://alison.rbind.io/publication/2016-uh-and-um-asd-sli/),
-and [other peer-reviewed
-journals](https://alison.rbind.io/publication/#2).
+Alison Hill is a Data Scientist & Professional Educator at RStudio. She
+received her PhD in psychology and quantitative methods from Vanderbilt
+University in 2008. Prior to joining RStudio, she was an Assistant
+Professor at Arizona State University, and an Associate Professor at
+Oregon Health & Science University (OHSU). Alison is one of the keynote
+speakers at the 2019 Young Statisticians Conference. She regularly leads
+workshops and develops online learning materials on topics like
+reproducible research, machine learning, and data visualization. She is
+also a co-author of the book ‘blogdown: Creating Websites with R
+Markdown’ (<https://bookdown.org/yihui/blogdown/>). Alison lives in
+Portland, Oregon with her husband and young daughter.
 
 ## Pre-work
 
