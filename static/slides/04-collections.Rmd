@@ -177,9 +177,7 @@ class: inverse, middle, center
 # `r emo::ji("sparkles")` Quiz! `r emo::ji("sparkles")`
 
 ```{r echo = FALSE}
-countdown(minutes = 2, play_sound = TRUE,
-          color_background = "#95C04C",
-          color_running_background = "#A9E1BA")
+countdown(minutes = 2)
 ```
 
 
