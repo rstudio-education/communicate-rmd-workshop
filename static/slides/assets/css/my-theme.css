@@ -264,7 +264,7 @@ div.my-footer span {
 .your-turn h1:before {
     content: "";
     display: inline-block;
-    background: url("../Your-turn.png") no-repeat;
+    background: url("../Your-turn-orange.png") no-repeat;
     width: 100px;
     height: 100px;
     float: left;
@@ -310,7 +310,7 @@ h1#pop-quiz:before {
 .live-code h1:before {
     content: "";
     display: inline-block;
-    background: url("../Live-code.png") no-repeat;
+    background: url("../Live-code-teal.png") no-repeat;
     width: 100px;
     height: 100px;
     float: left;
