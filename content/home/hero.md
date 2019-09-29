@@ -38,10 +38,10 @@ hero_media = "proteaceae.jpg"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://statsoc.org.au/event-3457232/Registration"
-  label = "Register Now"
-  icon_pack = ""
-  icon = ""
+  url = "materials"
+  label = "Start Here"
+  icon_pack = "fas"
+  icon = "door-open"
   
 [cta_alt]
   url = "about"
