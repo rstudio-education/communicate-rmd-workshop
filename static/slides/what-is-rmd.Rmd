@@ -4,7 +4,7 @@ output: html_document
 
 .left-column[
 <span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #17a2b8;"></i>
+  <i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"></i>
   <strong class="fa-stack-1x" style="color: #fff;">?</strong>
 </span> 
 ]

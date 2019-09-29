@@ -4,7 +4,7 @@
     <title>R Markdown Basics</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
-    <meta name="date" content="2019-09-23" />
+    <meta name="date" content="2019-09-29" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
@@ -14,7 +14,6 @@
   </head>
   <body>
     <textarea id="source">
-
 
 
 
@@ -75,11 +74,11 @@ class: middle, center
 | Time          | Activity                                                      |
 |:--------------|:--------------------------------------------------------------|
 | 09:00 - 10:30 | Session 1 (R Markdown Basics)                                 |
-| 10:30 - 11:00 | *Break* :tea:                                                 |
+| 10:30 - 11:00 | *Break* ☕                                 |
 | 11:00 - 12:30 | Session 2 (Advanced R Markdown)                               |
-| 12:30 - 01:30 | *Lunch* :bento:                                               |
+| 12:30 - 01:30 | *Lunch* 🍱                                  |
 | 01:30 - 03:00 | Session 3 (Templates)                                         |
-| 03:00 - 03:30 | *Break* :tea:                                                 |
+| 03:00 - 03:30 | *Break* 🍵                                    |
 | 03:30 - 05:00 | Session 4 (Collections)                                       |
 
 ---
@@ -88,7 +87,7 @@ layout: true
 &lt;div class="my-footer"&gt;&lt;span&gt;https://ysc-rmarkdown.netlify.com/&lt;/span&gt;&lt;/div&gt;
 
 ---
-background-image: url(images/hello.jpg)
+background-image: url(images/hello-red.jpg)
 background-position: top center
 background-size: 100%
 class: middle, center
@@ -115,7 +114,7 @@ class: middle, center
 
 .left-column[
 &lt;span class="fa-stack fa-4x"&gt;
-  &lt;i class="fa fa-circle fa-stack-2x" style="color: #17a2b8;"&gt;&lt;/i&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"&gt;&lt;/i&gt;
   &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
 &lt;/span&gt; 
 ]
@@ -145,7 +144,7 @@ class: middle, center
 
 .left-column[
 &lt;span class="fa-stack fa-4x"&gt;
-  &lt;i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"&gt;&lt;/i&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #f2e255"&gt;&lt;/i&gt;
   &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
 &lt;/span&gt; 
 ]
@@ -187,7 +186,7 @@ class: middle, center
 
 ### Source &amp;rarr; output
 
-&lt;img src="images/doc-base.png" width="50%" /&gt;
+&lt;img src="images/rmd-file.png" width="50%" /&gt;
 
 ]
 
@@ -245,7 +244,7 @@ class: your-turn
 
 # Your turn
 
-Find a partner and look at `01-explore.Rmd` together. 
+Find a partner and look at `01-bakeoff-report.Rmd` together. 
 Look at the source, then 🧶 **Knit** to HTML.
 
 Try to identify these parts in the source and the output:
@@ -260,9 +259,8 @@ Try to identify these parts in the source and the output:
 
 **If this was easy**, try to find all code that produces a *plot*.
 
-_psst...`01-hello-alison.Rmd` is also there..._
 
-<div class="countdown" id="timer_5d87d52c" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d906e30" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -271,7 +269,7 @@ class: live-code
 
 # Basic anatomy I
 
-We look at the source anatomy for `01-explore.Rmd` together:
+We look at the source anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -294,7 +292,7 @@ class: live-code
 
 # Basic anatomy II
 
-We look at the output anatomy for `01-explore.Rmd` together:
+We look at the output anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -366,12 +364,14 @@ class: middle, center
 
 ```yaml
 ---
+title: The Great British Bake Off
 output: html_document
 ---
 ```
 
 ```yaml
 ---
+title: The Great British Bake Off
 output:
   html_document:
     toc: true
@@ -406,7 +406,7 @@ Use `?html_document` from your R console to:
 
 _psst...answers on the next slide..._
 
-<div class="countdown" id="timer_5d87d58e" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d906bdb" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -417,6 +417,7 @@ class: your-turn
 
 ```yaml
 ---
+title: The Great British Bake Off
 output:
   html_document:
     toc: true
@@ -432,10 +433,15 @@ output:
 
 ```yaml
 ---
+title: The Great British Bake Off
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_download: true
 params:
-  name1: Alison
-  name2: Allison
-  sex: female
+  series: '1'
 ---
 ```
 
@@ -444,18 +450,21 @@ class: your-turn
 
 # Your turn
 
-## Change parameters &amp; knit again
-
 .pull-left[
 
 Change this:
 
 ```yaml
 ---
+title: The Great British Bake Off
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_download: true
 params:
-  name1: Alison
-  name2: Allison
-  sex: female
+  series: '1'
 ---
 ```
 
@@ -467,20 +476,24 @@ To this:
 
 ```yaml
 ---
+title: The Great British Bake Off
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_download: true
 params:
-  name1: pick a name...
-  name2: any name...
-  sex: pick male or female
+  series: '2'
 ---
 ```
 
 ]
 
-_If this was easy_, try out "Knit with Parameters."
+Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
 
-.footnote[`sex` is coded as a binary variable in these datasets]
 
-<div class="countdown" id="timer_5d87d4b2" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d906be9" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -535,8 +548,11 @@ class: inverse, center, middle
 ]
 
 ---
+class: middle, center
 
-![](images/rmd-nav.png)
+
+&lt;img src="images/rmd-nav.png" width="80%" /&gt;
+
 
 ---
 
@@ -546,10 +562,9 @@ class: inverse, center, middle
 
 .pull-left[
 ```markdown
-Childhood **vaccines**  
-are one of the  
-_great triumphs_  
-of modern medicine. 
+ **The Great British Bake Off** 
+(often abbreviated to _Bake Off_ or _GBBO_) 
+is a British television baking competition.
 ```
 ]
 
@@ -557,10 +572,9 @@ of modern medicine.
 
 .pull-right[
 
-Childhood **vaccines**  
-are one of the  
-_great triumphs_  
-of modern medicine. 
+**The Great British Bake Off** 
+(often abbreviated to _Bake Off_ or _GBBO_) 
+is a British television baking competition. 
 
 ]
 
@@ -574,24 +588,20 @@ class: top
 .pull-left[
 
 ```markdown
-Indeed, parents whose children are  
-vaccinated no longer have to worry about  
-their child's death or disability from:
+The original cast included:
 
-- whooping cough, 
-- polio, 
-- diphtheria, 
-- hepatitis, or 
-- a host of other infections.
+- Sue Perkins (_host_)
+- Mel Giedroyc (_host_)
+- Mary Berry (_judge_) and
+- Paul Hollywood (_judge_).
 
-Vaccines are the most cost-effective health  
-care interventions there are. We have   
-three new, extremely effective vaccines to  
-roll out in developing countries:  
+In each episode, the amateur bakers are 
+given **three challenges** based on that 
+week's theme.
 
-1. pneumonia
-1. rotavirus
-1. meningitis A
+1. a signature bake,
+1. a technical challenge,
+1. a show-stopper.
 ```
 
 ]
@@ -600,24 +610,20 @@ roll out in developing countries:
 
 .pull-right[
 
-Indeed, parents whose children are  
-vaccinated no longer have to worry about  
-their child's death or disability from:
+The original cast included:
 
-- whooping cough, 
-- polio, 
-- diphtheria, 
-- hepatitis, or 
-- a host of other infections.
+- Sue Perkins (_host_)
+- Mel Giedroyc (_host_)
+- Mary Berry (_judge_) and
+- Paul Hollywood (_judge_).
 
-Vaccines are the most cost-effective health  
-care interventions there are. We have  
-three new, extremely effective vaccines to  
-roll out in developing countries:
+In each episode, the amateur bakers are 
+given **three challenges** based on that 
+week's theme.
 
-1. pneumonia
-1. rotavirus
-1. meningitis A
+1. a signature bake,
+1. a technical challenge,
+1. a show-stopper.
 
 ]
 
@@ -629,16 +635,22 @@ roll out in developing countries:
 
 .pull-left[
 ```markdown
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
 --
 
 .pull-right[
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ---
@@ -649,20 +661,28 @@ Receiving rubella vaccination, Brazil, 2008.
 
 .pull-left[
 ```markdown
-[Photo](https://en.wikipedia.org/wiki/Vaccine)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
 
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+[Photo](https://en.wikipedia.org/)
+
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
 --
 
 .pull-right[
-[Photo](https://en.wikipedia.org/wiki/Vaccine)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
 
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+[Photo](https://en.wikipedia.org/)
+
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ---
@@ -723,9 +743,9 @@ class: inverse, center, middle
 
 ````
 ```{r}
-namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
+ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
 ```
 ````
 
@@ -739,15 +759,14 @@ What is the fate of this chunk?
 
 
 ```r
-namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
-#&gt; # A tibble: 2 x 7
-#&gt; # Groups:   name [2]
-#&gt;   country  year sex    name        n    prop generation
-#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
-#&gt; 1 oz       1979 female Alison   2936 0.00170 gen_x     
-#&gt; 2 oz       1995 female Allison  8126 0.00423 millenial
+ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
+#&gt; # A tibble: 1 x 8
+#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank
+#&gt;    &lt;int&gt;   &lt;int&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+#&gt; 1      1       5 2010-09-14         3.03             1           NA
+#&gt; # … with 2 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;
 ```
 
 ]
@@ -760,9 +779,9 @@ namedata %&gt;%
 
 ````
 ```{r}
-topyears &lt;- namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
+top_viewers &lt;- ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
 ```
 ````
 
@@ -776,9 +795,9 @@ What fate do you predict here?
 
 
 ```r
-topyears &lt;- namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
+top_viewers &lt;- ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
 ```
 
   
@@ -792,10 +811,10 @@ topyears &lt;- namedata %&gt;%
 
 ````
 ```{r}
-topyears &lt;- namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
-topyears
+top_viewers &lt;- ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
+top_viewers
 ```
 ````
 
@@ -807,16 +826,15 @@ topyears
 
 
 ```r
-topyears &lt;- namedata %&gt;% 
-  group_by(name) %&gt;% 
-  top_n(1, prop) 
-topyears
-#&gt; # A tibble: 2 x 7
-#&gt; # Groups:   name [2]
-#&gt;   country  year sex    name        n    prop generation
-#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     
-#&gt; 1 oz       1979 female Alison   2936 0.00170 gen_x     
-#&gt; 2 oz       1995 female Allison  8126 0.00423 millenial
+top_viewers &lt;- ratings %&gt;% 
+  filter(series == 1) %&gt;% 
+  top_n(1, viewers_7day)
+top_viewers
+#&gt; # A tibble: 1 x 8
+#&gt;   series episode uk_airdate viewers_7day viewers_28day network_rank
+#&gt;    &lt;int&gt;   &lt;int&gt; &lt;date&gt;            &lt;dbl&gt;         &lt;dbl&gt;        &lt;int&gt;
+#&gt; 1      1       5 2010-09-14         3.03             1           NA
+#&gt; # … with 2 more variables: channels_rank &lt;int&gt;, bbc_iplayer_requests &lt;dbl&gt;
 ```
 
   
@@ -828,14 +846,19 @@ topyears
 
 .pull-left[
 
+
+
+
 ````
 ```{r}
-ggplot(namedata, 
-  aes(x = year, 
-      y = prop,  
-      group = name, 
-      color = name)) + 
-  geom_line()
+ggplot(viewers, aes(episode, viewers, 
+                    colour = days, 
+                    group = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "Episode", 
+       y = "Viewers (millions)") +
+  expand_limits(y = 0) 
 ```
 ````
 
@@ -849,39 +872,39 @@ What about this one?
 
 
 ```r
-ggplot(namedata, 
-  aes(x = year, 
-      y = prop,  
-      group = name, 
-      color = name)) + 
-  geom_line()
+ggplot(viewers, aes(episode, viewers, 
+                    colour = days, 
+                    group = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "Episode", 
+       y = "Viewers (millions)") +
+  expand_limits(y = 0) 
 ```
 
-&lt;img src="01-basics_files/figure-html/unnamed-chunk-21-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="01-basics_files/figure-html/unnamed-chunk-23-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 
 ---
+class: live-code
 
-# Add chunks
+# Adding/running chunks
 
-button or
+Together we:
 
-Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+1. Add chunks with button or:
 
-Ctrl + Alt + `i` (Windows/Linux)
+   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+  
+   Ctrl + Alt + `i` (Windows/Linux)
+   
+1. Run chunks by:
 
----
+   Run current chunk button (interactive)
+   
+   Knit button / run all chunks
 
-# Run chunks
-
-.pull-left[
-interactively (show button)
-]
-
-.pull-right[
-whole doc (knit button or run all chunks or )
-]
 
 ---
 
@@ -889,8 +912,8 @@ whole doc (knit button or run all chunks or )
 
 .pull-left[
 
-Alison was most popular in 
-``` `r topyears %&gt;% pull(year) %&gt;% .[1]` ```
+The top viewed episode in series 1 was episode
+``` `r top_viewers %&gt;% pull(episode)` ```
 
 ]
 
@@ -898,8 +921,8 @@ Alison was most popular in
 
 .pull-right[
 
-Alison was most popular in 
-1979
+The top viewed episode in series 1 was episode
+5
 
 ]
 
@@ -923,7 +946,7 @@ class: inverse, center, middle
 
 ````
 ```{r}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -933,16 +956,17 @@ glimpse(namedata)
 
 
 ```r
-glimpse(namedata)
-#&gt; Observations: 176
-#&gt; Variables: 7
-#&gt; $ country    &lt;chr&gt; "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz",…
-#&gt; $ year       &lt;dbl&gt; 1928, 1928, 1929, 1929, 1930, 1930, 1931, 1931, 1932,…
-#&gt; $ sex        &lt;chr&gt; "female", "female", "female", "female", "female", "fe…
-#&gt; $ name       &lt;chr&gt; "Alison", "Allison", "Alison", "Allison", "Alison", "…
-#&gt; $ n          &lt;dbl&gt; 28, 22, 14, 13, 24, 17, 21, 16, 35, 21, 26, 15, 50, 2…
-#&gt; $ prop       &lt;dbl&gt; 2.342342e-05, 1.840411e-05, 1.209523e-05, 1.123129e-0…
-#&gt; $ generation &lt;chr&gt; "silent", "silent", "silent", "silent", "silent", "si…
+glimpse(ratings)
+#&gt; Observations: 84
+#&gt; Variables: 8
+#&gt; $ series               &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3…
+#&gt; $ episode              &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1…
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-0…
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3…
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1…
+#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 ```
 
 ]
@@ -955,7 +979,7 @@ glimpse(namedata)
 
 ````
 ```{r echo=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -965,15 +989,16 @@ glimpse(namedata)
 
 
 ```
-#&gt; Observations: 176
-#&gt; Variables: 7
-#&gt; $ country    &lt;chr&gt; "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz", "oz",…
-#&gt; $ year       &lt;dbl&gt; 1928, 1928, 1929, 1929, 1930, 1930, 1931, 1931, 1932,…
-#&gt; $ sex        &lt;chr&gt; "female", "female", "female", "female", "female", "fe…
-#&gt; $ name       &lt;chr&gt; "Alison", "Allison", "Alison", "Allison", "Alison", "…
-#&gt; $ n          &lt;dbl&gt; 28, 22, 14, 13, 24, 17, 21, 16, 35, 21, 26, 15, 50, 2…
-#&gt; $ prop       &lt;dbl&gt; 2.342342e-05, 1.840411e-05, 1.209523e-05, 1.123129e-0…
-#&gt; $ generation &lt;chr&gt; "silent", "silent", "silent", "silent", "silent", "si…
+#&gt; Observations: 84
+#&gt; Variables: 8
+#&gt; $ series               &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3…
+#&gt; $ episode              &lt;int&gt; 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 7, 8, 1…
+#&gt; $ uk_airdate           &lt;date&gt; 2010-08-17, 2010-08-24, 2010-08-31, 2010-0…
+#&gt; $ viewers_7day         &lt;dbl&gt; 2.24, 3.00, 3.00, 2.60, 3.03, 2.75, 3.10, 3…
+#&gt; $ viewers_28day        &lt;dbl&gt; 7, 3, 2, 4, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1…
+#&gt; $ network_rank         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ channels_rank        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#&gt; $ bbc_iplayer_requests &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 ```
 
 ]
@@ -986,7 +1011,7 @@ glimpse(namedata)
 
 ````
 ```{r eval=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -996,7 +1021,7 @@ glimpse(namedata)
 
 
 ```r
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -1009,7 +1034,7 @@ glimpse(namedata)
 
 ````
 ```{r include=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1029,7 +1054,7 @@ glimpse(namedata)
 
 ````
 ```{r echo=TRUE, results='hide'}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1039,7 +1064,7 @@ glimpse(namedata)
 
 
 ```r
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -1163,7 +1188,7 @@ str(knitr::opts_chunk$get())
 
 ````
 ```{r peek, echo=FALSE, results='hide'}
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1179,7 +1204,7 @@ glimpse(namedata)
 
     ````
     ```{r peek}
-    head(namedata)
+    head(ratings)
     ```
     ````
 
@@ -1289,13 +1314,7 @@ class: your-turn
 
 # Your turn
 
-## New data dump! 📰
-
-Data from other countries just came in &amp;mdash; you now have data from the US too!
-
-1. Read in `data/both_babies.csv`
-
-1. 🧶 **Knit** to HTML. Do you see data for both countries now?
+Customize this report.
 
 1. Clean up the chunks (split, combine, label, use options as you see fit)
    + include false all analysis chunks
@@ -1304,13 +1323,15 @@ Data from other countries just came in &amp;mdash; you now have data from the US
 
 1. Use the RStudio outline pane; rejoice!
 
-1. Try out "Knit with Parameters."
+1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters.
 
-__Not enough?__ See next slide for how to build a graphical user interface for parameters.
+__If this was easy,__ try adding a parameter for color palette and add in a package like [wesanderson](https://github.com/karthik/wesanderson) &amp;mdash; use the parameter in our ggplot2 code.
 
-_psst...`01-hello-alison.Rmd` is still there..._
+_psst...`01-bakeoff-report-alison.Rmd` is there..._
 
-<div class="countdown" id="timer_5d87d6b0" style="right:0;bottom:0;" data-warnwhen="0">
+_psst-psst...answers on the next slide..._
+
+<div class="countdown" id="timer_5d906c70" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1319,41 +1340,40 @@ class: your-turn
 
 # Answers
 
-.pull-left[
+
 
 ```yaml
----
 params:
-  name1: emi
-  name2: sara
-  sex: female
----
-```
-
-
-]
-
-.pull-right[
-
-```yaml
----
-params:
-  name1: emi
-  name2: sara
-  palette:
+  series:
+    label: "Series:"
+    value: 1
+    input: numeric
+    min: 1
+    max: 9
+    step: 1
+  palette: 
+    label: "Wes Anderson palette:"
+    value: GrandBudapest1
     input: select
-    label: 'sex:'
-    choices:
-    - female
-    - male
-    selected: female
----
+    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
-]
+
+
+
 
 ---
+class: inverse, middle, center
 
-Add netlify drop right here...
+# 📮
+
+.large[https://app.netlify.com/drop]
+
+---
+class: live-code
+
+# Clean your url up
+
+We live demo changing the main "landing page" name to `index.Rmd`, knit, then deploy again: https://app.netlify.com/drop
 
 ---
 class: middle, center
@@ -1396,7 +1416,7 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d87d448" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-15" id="timer_5d906f13" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>

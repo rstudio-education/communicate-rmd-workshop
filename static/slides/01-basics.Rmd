@@ -59,9 +59,6 @@ theme_bakeoff <- function(font_choice = "Lato"){
 ggplot2::theme_set(theme_bakeoff())
 ```
 
-```{r alison, include=FALSE}
-namedata <- read_csv(here::here("static/slides/data/alison-in-oz.csv"))
-```
 
 
 class: title-slide, center, middle
@@ -116,11 +113,11 @@ class: middle, center
 | Time          | Activity                                                      |
 |:--------------|:--------------------------------------------------------------|
 | 09:00 - 10:30 | Session 1 (R Markdown Basics)                                 |
-| 10:30 - 11:00 | *Break* :tea:                                                 |
+| 10:30 - 11:00 | *Break* `r emo::ji("coffee")`                                 |
 | 11:00 - 12:30 | Session 2 (Advanced R Markdown)                               |
-| 12:30 - 01:30 | *Lunch* :bento:                                               |
+| 12:30 - 01:30 | *Lunch* `r emo::ji("bento")`                                  |
 | 01:30 - 03:00 | Session 3 (Templates)                                         |
-| 03:00 - 03:30 | *Break* :tea:                                                 |
+| 03:00 - 03:30 | *Break* `r emo::ji("tea")`                                    |
 | 03:30 - 05:00 | Session 4 (Collections)                                       |
 
 ---
@@ -129,7 +126,7 @@ layout: true
 <div class="my-footer"><span>`r params$site_link`</span></div>
 
 ---
-background-image: url(images/hello.jpg)
+background-image: url(images/hello-red.jpg)
 background-position: top center
 background-size: 100%
 class: middle, center
@@ -160,7 +157,7 @@ class: middle, center
 
 .left-column[
 <span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"></i>
+  <i class="fa fa-circle fa-stack-2x" style="color: #f2e255"></i>
   <strong class="fa-stack-1x" style="color: #fff;">?</strong>
 </span> 
 ]
@@ -205,7 +202,7 @@ knitr::include_graphics("images/word.png")
 ### Source &rarr; output
 
 ```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/doc-base.png")
+knitr::include_graphics("images/rmd-file.png")
 ```
 
 ]
@@ -270,7 +267,7 @@ class: your-turn
 
 # Your turn
 
-Find a partner and look at `01-explore.Rmd` together. 
+Find a partner and look at `01-bakeoff-report.Rmd` together. 
 Look at the source, then `r emo::ji("yarn")` **Knit** to HTML.
 
 Try to identify these parts in the source and the output:
@@ -285,7 +282,6 @@ Try to identify these parts in the source and the output:
 
 **If this was easy**, try to find all code that produces a *plot*.
 
-_psst...`01-hello-alison.Rmd` is also there..._
 
 ```{r echo = FALSE}
 countdown(minutes = 5)
@@ -296,7 +292,7 @@ class: live-code
 
 # Basic anatomy I
 
-We look at the source anatomy for `01-explore.Rmd` together:
+We look at the source anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -323,7 +319,7 @@ class: live-code
 
 # Basic anatomy II
 
-We look at the output anatomy for `01-explore.Rmd` together:
+We look at the output anatomy for `01-bakeoff-report.Rmd` together:
 
 1. The **metadata**
 
@@ -397,13 +393,15 @@ class: middle, center
 
 ```{r echo = FALSE}
 yml_empty() %>% 
+  yml_title("The Great British Bake Off") %>% 
   yml_output(html_document()) %>% 
   asis_yaml_output()
 ```
 
 ```{r echo = FALSE}
 yml_empty() %>% 
-  yml_output(html_document(toc = TRUE)) %>% 
+  yml_title("The Great British Bake Off") %>% 
+  yml_output(html_document(toc = TRUE)) %>%  
   asis_yaml_output()
 ```
 
@@ -448,6 +446,7 @@ class: your-turn
 
 ```{r echo = FALSE}
 yml_empty() %>% 
+  yml_title("The Great British Bake Off") %>% 
   yml_output(html_document(toc = TRUE,
                            toc_float = TRUE,
                            theme = "flatly",
@@ -461,11 +460,14 @@ yml_empty() %>%
 
 ```{r echo = FALSE}
 yml_empty() %>% 
+  yml_title("The Great British Bake Off") %>% 
+  yml_output(html_document(toc = TRUE,
+                           toc_float = TRUE,
+                           theme = "flatly",
+                           code_download = TRUE)) %>% 
   yml_params(
-    name1 = "Alison",
-    name2 = "Allison",
-    sex = "female"
-    ) %>% 
+    series = '1'
+  ) %>% 
   asis_yaml_output()
 ```
 
@@ -474,19 +476,20 @@ class: your-turn
 
 # Your turn
 
-## Change parameters & knit again
-
 .pull-left[
 
 Change this:
 
 ```{r echo = FALSE}
 yml_empty() %>% 
+  yml_title("The Great British Bake Off") %>% 
+  yml_output(html_document(toc = TRUE,
+                           toc_float = TRUE,
+                           theme = "flatly",
+                           code_download = TRUE)) %>% 
   yml_params(
-    name1 = "Alison",
-    name2 = "Allison",
-    sex = "female"
-    ) %>% 
+    series = '1'
+  ) %>% 
   asis_yaml_output()
 ```
 
@@ -498,19 +501,21 @@ To this:
 
 ```{r echo = FALSE}
 yml_empty() %>% 
+  yml_title("The Great British Bake Off") %>% 
+  yml_output(html_document(toc = TRUE,
+                           toc_float = TRUE,
+                           theme = "flatly",
+                           code_download = TRUE)) %>% 
   yml_params(
-    name1 = "pick a name...",
-    name2 = "any name...",
-    sex = "pick male or female"
-    ) %>% 
+    series = '2'
+  ) %>% 
   asis_yaml_output()
 ```
 
 ]
 
-_If this was easy_, try out "Knit with Parameters."
+Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
 
-.footnote[`sex` is coded as a binary variable in these datasets]
 
 ```{r echo = FALSE}
 countdown(minutes = 3)
@@ -567,8 +572,13 @@ class: inverse, center, middle
 ]
 
 ---
+class: middle, center
 
-![](images/rmd-nav.png)
+
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics("images/rmd-nav.png")
+```
+
 
 ---
 
@@ -578,10 +588,9 @@ class: inverse, center, middle
 
 .pull-left[
 ```markdown
-Childhood **vaccines**  
-are one of the  
-_great triumphs_  
-of modern medicine. 
+ **The Great British Bake Off** 
+(often abbreviated to _Bake Off_ or _GBBO_) 
+is a British television baking competition.
 ```
 ]
 
@@ -589,10 +598,9 @@ of modern medicine.
 
 .pull-right[
 
-Childhood **vaccines**  
-are one of the  
-_great triumphs_  
-of modern medicine. 
+**The Great British Bake Off** 
+(often abbreviated to _Bake Off_ or _GBBO_) 
+is a British television baking competition. 
 
 ]
 
@@ -606,24 +614,20 @@ class: top
 .pull-left[
 
 ```markdown
-Indeed, parents whose children are  
-vaccinated no longer have to worry about  
-their child's death or disability from:
+The original cast included:
 
-- whooping cough, 
-- polio, 
-- diphtheria, 
-- hepatitis, or 
-- a host of other infections.
+- Sue Perkins (_host_)
+- Mel Giedroyc (_host_)
+- Mary Berry (_judge_) and
+- Paul Hollywood (_judge_).
 
-Vaccines are the most cost-effective health  
-care interventions there are. We have   
-three new, extremely effective vaccines to  
-roll out in developing countries:  
+In each episode, the amateur bakers are 
+given **three challenges** based on that 
+week's theme.
 
-1. pneumonia
-1. rotavirus
-1. meningitis A
+1. a signature bake,
+1. a technical challenge,
+1. a show-stopper.
 ```
 
 ]
@@ -632,24 +636,20 @@ roll out in developing countries:
 
 .pull-right[
 
-Indeed, parents whose children are  
-vaccinated no longer have to worry about  
-their child's death or disability from:
+The original cast included:
 
-- whooping cough, 
-- polio, 
-- diphtheria, 
-- hepatitis, or 
-- a host of other infections.
+- Sue Perkins (_host_)
+- Mel Giedroyc (_host_)
+- Mary Berry (_judge_) and
+- Paul Hollywood (_judge_).
 
-Vaccines are the most cost-effective health  
-care interventions there are. We have  
-three new, extremely effective vaccines to  
-roll out in developing countries:
+In each episode, the amateur bakers are 
+given **three challenges** based on that 
+week's theme.
 
-1. pneumonia
-1. rotavirus
-1. meningitis A
+1. a signature bake,
+1. a technical challenge,
+1. a show-stopper.
 
 ]
 
@@ -661,16 +661,22 @@ roll out in developing countries:
 
 .pull-left[
 ```markdown
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
 --
 
 .pull-right[
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ---
@@ -681,20 +687,28 @@ Receiving rubella vaccination, Brazil, 2008.
 
 .pull-left[
 ```markdown
-[Photo](https://en.wikipedia.org/wiki/Vaccine)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
 
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+[Photo](https://en.wikipedia.org/)
+
+![](http://bit.ly/blue-ribbon-sponge)
 ```
 ]
 
 --
 
 .pull-right[
-[Photo](https://en.wikipedia.org/wiki/Vaccine)
+Competitive baking, such as making Victoria 
+sponge (_pictured_), is part of the classic 
+English village fête,
+which inspired the series.
 
-Receiving rubella vaccination, Brazil, 2008.
-![](http://bit.ly/VaccineBySandraRugio)
+[Photo](https://en.wikipedia.org/)
+
+![](http://bit.ly/blue-ribbon-sponge)
 ]
 
 ---
@@ -755,9 +769,9 @@ class: inverse, center, middle
 
 ````
 ```{r}`r ''`
-namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
+ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
 ```
 ````
 
@@ -770,9 +784,9 @@ What is the fate of this chunk?
 .pull-right[
 
 ```{r}
-namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
+ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
 ```
 
 ]
@@ -785,9 +799,9 @@ namedata %>%
 
 ````
 ```{r}`r ''`
-topyears <- namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
 ```
 ````
 
@@ -800,9 +814,9 @@ What fate do you predict here?
 .pull-right[
 
 ```{r}
-topyears <- namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
 ```
 
   
@@ -816,10 +830,10 @@ topyears <- namedata %>%
 
 ````
 ```{r}`r ''`
-topyears <- namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
-topyears
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
+top_viewers
 ```
 ````
 
@@ -830,10 +844,10 @@ topyears
 .pull-right[
 
 ```{r}
-topyears <- namedata %>% 
-  group_by(name) %>% 
-  top_n(1, prop) 
-topyears
+top_viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  top_n(1, viewers_7day)
+top_viewers
 ```
 
   
@@ -845,14 +859,28 @@ topyears
 
 .pull-left[
 
+```{r include = FALSE}
+viewers <- ratings %>% 
+  filter(series == 1) %>% 
+  select(series:viewers_28day) %>% 
+  pivot_longer(starts_with("viewers"), 
+    names_to = "days", 
+    names_prefix = "viewers_", 
+    values_to = "viewers"
+  ) 
+```
+
+
 ````
 ```{r}`r ''`
-ggplot(namedata, 
-  aes(x = year, 
-      y = prop,  
-      group = name, 
-      color = name)) + 
-  geom_line()
+ggplot(viewers, aes(episode, viewers, 
+                    colour = days, 
+                    group = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "Episode", 
+       y = "Viewers (millions)") +
+  expand_limits(y = 0) 
 ```
 ````
 
@@ -864,38 +892,38 @@ What about this one?
 
 .pull-right[
 
-```{r fig.retina=3, out.width="70%", fig.align='center'}
-ggplot(namedata, 
-  aes(x = year, 
-      y = prop,  
-      group = name, 
-      color = name)) + 
-  geom_line()
+```{r fig.retina=3, out.width="60%", fig.align='center'}
+ggplot(viewers, aes(episode, viewers, 
+                    colour = days, 
+                    group = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(x = "Episode", 
+       y = "Viewers (millions)") +
+  expand_limits(y = 0) 
 ```
 
 ]
 
 ---
+class: live-code
 
-# Add chunks
+# Adding/running chunks
 
-button or
+Together we:
 
-Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+1. Add chunks with button or:
 
-Ctrl + Alt + `i` (Windows/Linux)
+   Command (or Cmd) `⌘` + Option (or Alt) `⌥` +  `i` (Mac)
+  
+   Ctrl + Alt + `i` (Windows/Linux)
+   
+1. Run chunks by:
 
----
+   Run current chunk button (interactive)
+   
+   Knit button / run all chunks
 
-# Run chunks
-
-.pull-left[
-interactively (show button)
-]
-
-.pull-right[
-whole doc (knit button or run all chunks or )
-]
 
 ---
 
@@ -903,8 +931,8 @@ whole doc (knit button or run all chunks or )
 
 .pull-left[
 
-Alison was most popular in 
-``` `r knitr::inline_expr('topyears %>% pull(year) %>% .[1]')` ```
+The top viewed episode in series 1 was episode
+``` `r knitr::inline_expr('top_viewers %>% pull(episode)')` ```
 
 ]
 
@@ -912,8 +940,8 @@ Alison was most popular in
 
 .pull-right[
 
-Alison was most popular in 
-`r topyears %>% pull(year) %>% .[1]`
+The top viewed episode in series 1 was episode
+`r top_viewers %>% pull(episode)`
 
 ]
 
@@ -937,7 +965,7 @@ class: inverse, center, middle
 
 ````
 ```{r}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -946,7 +974,7 @@ glimpse(namedata)
 .pull-right[
 
 ```{r}
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -959,7 +987,7 @@ glimpse(namedata)
 
 ````
 ```{r echo=FALSE}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -968,7 +996,7 @@ glimpse(namedata)
 .pull-right[
 
 ```{r echo=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -981,7 +1009,7 @@ glimpse(namedata)
 
 ````
 ```{r eval=FALSE}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -990,7 +1018,7 @@ glimpse(namedata)
 .pull-right[
 
 ```{r eval=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -1003,7 +1031,7 @@ glimpse(namedata)
 
 ````
 ```{r include=FALSE}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1012,7 +1040,7 @@ glimpse(namedata)
 .pull-right[
 
 ```{r include=FALSE}
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -1025,7 +1053,7 @@ glimpse(namedata)
 
 ````
 ```{r echo=TRUE, results='hide'}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1034,7 +1062,7 @@ glimpse(namedata)
 .pull-right[
 
 ```{r echo=TRUE, results='hide'}
-glimpse(namedata)
+glimpse(ratings)
 ```
 
 ]
@@ -1102,7 +1130,7 @@ str(knitr::opts_chunk$get())
 
 ````
 ```{r peek, echo=FALSE, results='hide'}`r ''`
-glimpse(namedata)
+glimpse(ratings)
 ```
 ````
 
@@ -1118,7 +1146,7 @@ glimpse(namedata)
 
     ````
     ```{r peek}`r ''`
-    head(namedata)
+    head(ratings)
     ```
     ````
 
@@ -1228,13 +1256,7 @@ class: your-turn
 
 # Your turn
 
-## New data dump! `r emo::ji("newspaper")`
-
-Data from other countries just came in &mdash; you now have data from the US too!
-
-1. Read in `data/both_babies.csv`
-
-1. `r emo::ji("yarn")` **Knit** to HTML. Do you see data for both countries now?
+Customize this report.
 
 1. Clean up the chunks (split, combine, label, use options as you see fit)
    + include false all analysis chunks
@@ -1243,11 +1265,13 @@ Data from other countries just came in &mdash; you now have data from the US too
 
 1. Use the RStudio outline pane; rejoice!
 
-1. Try out "Knit with Parameters."
+1. Build a [graphical user interface](https://bookdown.org/yihui/rmarkdown/params-knit.html#the-interactive-user-interface) for parameters.
 
-__Not enough?__ See next slide for how to build a graphical user interface for parameters.
+__If this was easy,__ try adding a parameter for color palette and add in a package like [wesanderson](https://github.com/karthik/wesanderson) &mdash; use the parameter in our ggplot2 code.
 
-_psst...`01-hello-alison.Rmd` is still there..._
+_psst...`01-bakeoff-report-alison.Rmd` is there..._
+
+_psst-psst...answers on the next slide..._
 
 ```{r echo = FALSE}
 countdown(minutes = 5)
@@ -1258,40 +1282,40 @@ class: your-turn
 
 # Answers
 
-.pull-left[
 
-```{r echo = FALSE}
-yml_empty() %>% 
-  yml_params(
-    name1 = "emi",
-    name2 = "sara",
-    sex = "female"
-    ) %>% 
-  asis_yaml_output()
+
+```yaml
+params:
+  series:
+    label: "Series:"
+    value: 1
+    input: numeric
+    min: 1
+    max: 9
+    step: 1
+  palette: 
+    label: "Wes Anderson palette:"
+    value: GrandBudapest1
+    input: select
+    choices: [GrandBudapest1, Darjeeling1, Darjeeling2, FantasticFox1, Royal2]
 ```
 
 
-]
 
-.pull-right[
-
-```{r echo = FALSE}
-yml_empty() %>% 
-  yml_params(
-    name1 = "emi",
-    name2 = "sara",
-    palette = shiny_select("sex:", 
-                           choices = c("female", "male"), 
-                           selected = "female", 
-                           multiple = FALSE)
-  ) %>% 
-  asis_yaml_output()
-```
-]
 
 ---
+class: inverse, middle, center
 
-Add netlify drop right here...
+# `r emo::ji("postbox")`
+
+.large[https://app.netlify.com/drop]
+
+---
+class: live-code
+
+# Clean your url up
+
+We live demo changing the main "landing page" name to `index.Rmd`, knit, then deploy again: https://app.netlify.com/drop
 
 ---
 class: middle, center
