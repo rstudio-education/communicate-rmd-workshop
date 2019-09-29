@@ -1,6 +1,6 @@
 ---
 title: 'Session 01: R Markdown Basics'
-draft: true
+draft: false
 event: 'Young Statisticians Conference 2019'
 event_url: https://ysc2019.netlify.com/#workshop
 location: Canberra, Australia
@@ -27,10 +27,3 @@ weight: 2
 knitr::include_url("/slides/01-basics.html")
 ```
 
-# Topics:
-
-+ Metadata (YAML)
-+ Text (markdown)
-+ Code (`knitr` chunks and code chunk options)
-+ Parameters
-+ Publishing
