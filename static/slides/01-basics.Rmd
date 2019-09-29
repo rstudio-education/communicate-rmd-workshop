@@ -24,6 +24,7 @@ params:
   wifi_password: "tbd"
   site_link: "https://ysc-rmarkdown.netlify.com/"
   cloud_link: "tbd"
+  github_link: "https://github.com/ysc2019-workshop/01-basics"
 ---
 
 ```{r setup, include=FALSE}
@@ -261,6 +262,101 @@ class: middle, center
 ```{r echo=FALSE, out.width="40%"}
 knitr::include_graphics("images/doll.png")
 ```
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# Go here:
+
+[`r params$github_link`](`r params$github_link`)
+
+Click on "Use this template" (make sure you are logged in)
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-template.png")
+```
+
+]
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# In your repo
+
+Click on green button, then the clipboard to copy HTTPS
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-https.png")
+```
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Go to rstudio.cloud:
+
+[`r params$cloud_link`](`r params$cloud_link`)
+
+1. Join space > Click on "Projects" (nothing there)
+
+1. New Project from GitHub Repo
+
+1. Use **your** HTTPS link:
+
+
+  ```{r echo=FALSE, out.width='50%'}
+  knitr::include_graphics("images/cloud-from-git.png")
+  ```
+
+1. Name your project
+
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Last step!
+
+I promise! Still in rstudio.cloud:
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(
+  scope = "project",
+  user.name = "Jane",
+  user.email = "jane@example.org"
+)
+```
+
+]
 
 ---
 class: your-turn

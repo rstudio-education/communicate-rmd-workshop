@@ -240,6 +240,96 @@ class: middle, center
 &lt;img src="images/doll.png" width="40%" /&gt;
 
 ---
+
+.left-column[
+
+# &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Go here:
+
+[https://github.com/ysc2019-workshop/01-basics](https://github.com/ysc2019-workshop/01-basics)
+
+Click on "Use this template" (make sure you are logged in)
+
+&lt;img src="images/cloud-from-template.png" width="3840" /&gt;
+
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# In your repo
+
+Click on green button, then the clipboard to copy HTTPS
+
+&lt;img src="images/cloud-from-https.png" width="3840" /&gt;
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Go to rstudio.cloud:
+
+[tbd](tbd)
+
+1. Join space &gt; Click on "Projects" (nothing there)
+
+1. New Project from GitHub Repo
+
+1. Use **your** HTTPS link:
+
+
+  &lt;img src="images/cloud-from-git.png" width="50%" /&gt;
+
+1. Name your project
+
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Last step!
+
+I promise! Still in rstudio.cloud:
+
+
+```r
+library(usethis)
+use_git_config(
+  scope = "project",
+  user.name = "Jane",
+  user.email = "jane@example.org"
+)
+```
+
+]
+
+---
 class: your-turn
 
 # Your turn
@@ -260,7 +350,7 @@ Try to identify these parts in the source and the output:
 **If this was easy**, try to find all code that produces a *plot*.
 
 
-<div class="countdown" id="timer_5d907283" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d9088a5" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -406,7 +496,7 @@ Use `?html_document` from your R console to:
 
 _psst...answers on the next slide..._
 
-<div class="countdown" id="timer_5d906fd7" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d9088a8" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -493,7 +583,7 @@ params:
 Now click on knit button and pick __"Knit with Parameters."__ How is this different from what you did above?
 
 
-<div class="countdown" id="timer_5d906ee3" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d9087ef" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -882,7 +972,7 @@ ggplot(viewers, aes(episode, viewers,
   expand_limits(y = 0) 
 ```
 
-&lt;img src="01-basics_files/figure-html/unnamed-chunk-23-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="01-basics_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -1344,7 +1434,7 @@ _psst...`01-bakeoff-report-alison.Rmd` is there..._
 
 _psst-psst...answers on the next slide..._
 
-<div class="countdown" id="timer_5d906fb1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_5d908886" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1429,7 +1519,7 @@ class: middle, center
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d90705b" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-15" id="timer_5d9086f5" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>
