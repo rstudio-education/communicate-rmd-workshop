@@ -1,5 +1,5 @@
 .countdown {
-  background: inherit;
+  background: #95C04C;
   position: absolute;
   cursor: pointer;
   font-size: 3em;
@@ -22,11 +22,11 @@ code.countdown-time {
   color: inherit;
 }
 .countdown.running {
-  border-color: #3C9A5F;
-  background-color: #43AC6A;
+  border-color: #98CAA7;
+  background-color: #A9E1BA;
 }
 .countdown.running .countdown-digits {
-  color: #102B1A;
+  color: #2A382E;
 }
 .countdown.finished {
   border-color: #D83A20;

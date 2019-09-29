@@ -176,7 +176,6 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .inverse h1 {
-  font-size: 6em;
   font-family: 'Josefin Slab', serif;
   color: #fff;
   padding-top: 0px;
@@ -186,7 +185,6 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .inverse h2 {
-  font-size: 8em;
   font-family: 'Josefin Slab', serif;
   text-shadow: 1px 1px 1px #003b3c;
   color: #fff;
@@ -195,7 +193,6 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .inverse h3 {
-  font-size: 6em;
   font-family: 'Josefin Slab', serif;
   text-shadow: 1px 1px 1px #003b3c;
   color: #fff;
