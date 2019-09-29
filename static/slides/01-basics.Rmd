@@ -1252,16 +1252,29 @@ knitr::opts_chunk$set(
 ]
 
 ---
+class: live-code
+
+# Adding a setup chunk
+
+We do this together:
+
+1. Add `fig.path = "figs/"` as a knitr code chunk option for a single plot (watch what happens if we don't include the backslash!)
+
+1. Knit and behold
+
+1. We add it to a global setup chunk.
+
+
+---
 class: your-turn
 
 # Your turn
 
 Customize this report.
 
-1. Clean up the chunks (split, combine, label, use options as you see fit)
-   + include false all analysis chunks
-   + echo false all plots
-   + add setup chunk
+1. Label the code chunk with your plot in it.
+
+1. Add your setup chunk.
 
 1. Use the RStudio outline pane; rejoice!
 
