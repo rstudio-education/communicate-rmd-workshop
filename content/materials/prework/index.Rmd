@@ -40,7 +40,8 @@ Welcome to the [Communicating with R Markdown](/) workshop! We look forward to m
         ```{r pkg-list, eval=FALSE}
         install.packages(c("rmarkdown", "devtools", "usethis", "here", 
                            "tidyverse", "xaringan", "flexdashboard", 
-                           "distill", "bookdown", "blogdown"))
+                           "distill", "bookdown", "blogdown",
+                           "glue", "wesanderson"))
         ```
     
 1. Don't forget your power cord!
