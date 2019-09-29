@@ -20,11 +20,11 @@ output:
     includes:
       in_header: assets/header.html  
 params:
-  wifi_network: "tbd"
-  wifi_password: "tbd"
+  wifi_network: "Functions"
+  wifi_password: "Stata_16"
   site_link: "https://ysc-rmarkdown.netlify.com/"
-  cloud_link: "tbd"
-  github_link: "https://github.com/ysc2019-workshop/01-basics"
+  cloud_link: "http://bit.ly/ysc-rmarkdown"
+  github_link: "https://github.com/ysc2019-workshop/04-blogdown"
 ---
 
 ```{r setup, include=FALSE}
