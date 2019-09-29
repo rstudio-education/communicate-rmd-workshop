@@ -4,8 +4,10 @@
     <title>Advanced R Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="Alison Hill" />
-    <meta name="date" content="2019-09-23" />
+    <meta name="date" content="2019-09-30" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/my-theme.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/my-fonts.css" type="text/css" />
@@ -61,13 +63,31 @@ layout: true
 ---
 
 
+.left-column[
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
+&lt;/span&gt; 
+]
+
+.right-column[
+
+# How does R Markdown work?
+
+1. 🤷
+
+1. I press knit, a document appears, and I believe that anything happening in between could be actual magic.
+
+1. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want.
+
+]
 
 ---
 class: top
 
 .left-column[
 &lt;span class="fa-stack fa-4x"&gt;
-  &lt;i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"&gt;&lt;/i&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"&gt;&lt;/i&gt;
   &lt;strong class="fa-stack-1x" style="color: #fff;"&gt;?&lt;/strong&gt;
 &lt;/span&gt; 
 
@@ -89,7 +109,7 @@ class: top
 ---
 class: middle, center
 
-
+&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" width="25%" style="display: block; margin: auto;" /&gt;
 
 
 &gt; "In a nutshell, R Markdown stands on the shoulders of `knitr` and **Pandoc**.
@@ -112,11 +132,9 @@ class: center, middle
 # Foreshadowing
 
 
+&lt;img src="images/outputs.png" width="40%" /&gt;
 
 
-??? 
-
-but first a pop quiz...
 
 ---
 class: pop-quiz
@@ -161,7 +179,9 @@ class: your-turn
 
 _psst: answers on next slide..._
 
-
+<div class="countdown" id="timer_5d90d0b2" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 class: your-turn
@@ -190,7 +210,7 @@ class: your-turn
 
 # Your turn
 
-Find a partner and look at `02-progress.Rmd` together. 
+Find a partner and look at `02-bakeoff-finales.Rmd` together. 
 Look at the source, then 🧶 **Knit**.
 
 Answer the following questions:
@@ -205,14 +225,16 @@ Answer the following questions:
 
 1. Anything in the output (or not in the output) surprise you?
 
-
+<div class="countdown" id="timer_5d90d248" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 class: middle, center, inverse
 
 &lt;span class="fa-stack fa-4x"&gt;
   &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
-  &lt;strong class="fa-stack-1x" style="color:#2f5275;"&gt;1 &lt;/strong&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;1 &lt;/strong&gt;
 &lt;/span&gt; 
 
 --
@@ -223,7 +245,7 @@ class: middle, center, inverse
 ---
 class: middle, center
 
-
+&lt;img src="images/outputs.png" width="50%" /&gt;
 
 ???
 
@@ -237,7 +259,7 @@ extensions (different packages that extend output formats available to you)
 class: middle, center
 
 
-
+&lt;a href="https://rmarkdown.rstudio.com/docs/reference/index.html#section-output-formats" target="_blank"&gt;&lt;img src="images/rmdbase-formats.png" width="40%" /&gt;&lt;/a&gt;
 
 https://rmarkdown.rstudio.com/docs/reference/index.html#section-output-formats
 
@@ -259,20 +281,34 @@ Use the drop-down menu for the 🧶 **Knit** button and try:
 ]
 
 .pull-right[
-
+&lt;img src="images/knit-dropdown.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ]
 
-
+<div class="countdown" id="timer_5d90d370" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 
 ---
 
 # Temp check 🌡
 
-Does your current YAML look like this?
+Do you have new output formats in your YAML?
 
-
+```yaml
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+  word_document:
+    toc: true
+  pdf_document:
+    toc: true
+---
+```
 
 ???
 
@@ -281,33 +317,6 @@ This is a great way to "control" your knit button!
 Notice that when you knit, it respects those output options in your YAML.
 
 This way you "save" your output options
-
----
-class: your-turn
-
-# Your turn
-
-## Add output options with your YAML
-
-.pull-left[
-
-You just used the drop-down 🧶 **Knit** button to knit to Word and PDF. 
-
-1. Change your YAML to the right...
-
-1. Be __very careful__ about indentation and `:` here!!
-
-1. 🧶 **Knit** to Word again- is there a TOC?
-
-]
-
-.pull-right[
-
-
-
-]
-
-
 
 
 ---
@@ -329,6 +338,7 @@ You just used the drop-down 🧶 **Knit** button to knit to Word and PDF.
 
 + Easy to forget the possible `values` for a given `key`
 ]
+
 ---
 class: your-turn
 
@@ -336,8 +346,61 @@ class: your-turn
 
 ## Use an extension package
 
+.pull-left[
 
-1. Edit your YAML again! Change the `output:` key to only `distill::distill_article` 
+1. Edit your YAML again! Change the `output:` key to only `bookdown::html_document2` 
+
+1. Save the document; click on the dropdown 🧶 **Knit** button- what do you notice?
+
+1. 🧶 **Knit** to html_document2.
+
+]
+
+.pull-right[
+```yaml
+---
+output:
+  bookdown::html_document2:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+```
+]
+
+
+
+<div class="countdown" id="timer_5d90d024" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/) on your own computer)]
+
+---
+class: live-code
+
+# Adding figure auto-numbering &amp; captions
+
+Together we:
+
+1. Label that chunk
+
+1. Add a cross-reference like see Figure `\@ref(fig:pretty-plot)`
+
+1. Try with `finale-scatterplot` code chunk: see Figure `\@ref(fig:finale-scatterplot)` (watch what happens if try to cross-reference without a caption!)
+
+.footnote[Cross-referencing only works in these output packages: distill, bookdown, blogdown]
+
+---
+class: your-turn
+
+# Your turn
+
+## Use another extension package
+
+
+1. Edit your YAML again! Add the output format `distill::distill_article` 
 
 1. Save the document; click on the dropdown 🧶 **Knit** button- what do you notice?
 
@@ -347,7 +410,9 @@ class: your-turn
 
 _psst...answers on the next slide..._
 
-
+<div class="countdown" id="timer_5d90d1c9" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 
 .footnote[(note: this requires you to install the [`distill` package](https://rstudio.github.io/distill/) on your own computer)]
@@ -363,13 +428,15 @@ class: your-turn
 
 ## Answer
 
-.pull-left[
 
-]
+```yaml
+---
+output:
+  distill::distill_article:
+    toc: true
+---
+```
 
-.pull-right[
-
-]
 
 ---
 class: middle
@@ -450,19 +517,226 @@ output:
 
 ]
 
+
 ---
+class: middle, center, inverse
 
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;2 &lt;/strong&gt;
+&lt;/span&gt; 
 
+--
 
-
+# Command line
 
 
 ---
 class: middle, center
 
-# ⏱
+# Rendering
 
-# Time for a break!
+.pull-left[
+
+So far: 🧶
+
+]
+
+.pull-right[
+
+```r
+render("02-bakeoff-finales.Rmd")
+```
+
+]
+---
+class: your-turn
+
+# Your turn
+
+Instead of using the "Knit" button, try running this code in your R console:
+
+
+```r
+library(rmarkdown) # needs to be loaded first
+render("02-bakeoff-finales.Rmd")
+```
+
+
+Now try changing the parameters:
+
+
+```r
+render("02-bakeoff-finales.Rmd",
+       params = list(series = "9"))
+```
+
+__If this was easy__, play with the other parameters too. Or see if you can change the output format, and add output options.
+
+_psst...answers on the next slide..._
+
+
+<div class="countdown" id="timer_5d90d1ba" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+class: your-turn
+
+# Answer
+
+
+```r
+render("02-bakeoff-finales.Rmd",
+       params = list(series = "9"), 
+       output_format = distill::distill_article(toc = TRUE))
+```
+
+
+---
+class: middle, center, inverse
+
+&lt;span class="fa-stack fa-4x"&gt;
+  &lt;i class="fa fa-circle fa-stack-2x" style="color: #fff;"&gt;&lt;/i&gt;
+  &lt;strong class="fa-stack-1x" style="color:#17a2b8;"&gt;3 &lt;/strong&gt;
+&lt;/span&gt; 
+
+--
+
+# Render loops
+
+---
+class: live-code
+
+# We loop together
+
+
+
+```r
+# the setup
+series &lt;- sort(unique(ratings$series))
+
+# the loop
+for (this_series in series) {
+  render("02-bakeoff-finales.Rmd",
+         params = list(series = this_series))
+}
+```
+
+_psst...the wrong way_
+
+---
+
+# We need two things
+
+For the `rmarkdown::render()` function to work they way we want:
+
+1. The list of series -&gt; `params`
+
+1. The name of each report -&gt; `output_file`
+
+We could do this with a loop, but let's start purrring...
+
+---
+
+# Rendering multiple reports
+
+
+```r
+# the setup
+
+paths &lt;- paste0("series-", series)
+
+# series needs to be a list
+series &lt;- sort(unique(ratings$series))
+params &lt;- map(series, ~ list(series = .x))
+str(params)
+```
+
+
+```r
+walk2(
+  paths, params,
+  ~ rmarkdown::render("02-bakeoff-finales.Rmd", output_file = .x, params = .y)
+)
+```
+
+
+---
+class: your-turn
+
+# Your turn
+
+Try to get this set-up working locally for you.
+
+
+```r
+# the setup
+
+paths &lt;- paste0("series-", series)
+
+# series needs to be a list
+series &lt;- sort(unique(ratings$series))
+params &lt;- map(series, ~ list(series = .x))
+str(params)
+```
+
+
+```r
+walk2(
+  paths, params,
+  ~ rmarkdown::render("02-bakeoff-finales.Rmd", output_file = .x, params = .y)
+)
+```
+
+<div class="countdown" id="timer_5d90d3d5" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+---
+class: live-code
+
+# Digging deeper
+
+So now the output file name changed, but we can go deeper.
+
+Let's say we'd also like the change the title in our YAML.
+
+Let's do this together.
+
+(make sure the below is in quotes)
+
+```yaml
+---
+title: The Great British Bake Off, Series `r params$series`
+---
+```
+
+---
+class: your-turn
+
+# Your turn
+
+Use your render script again and check to make sure that the titles now have the series number in them. 
+
+It is good practice to save your rendering script in the project, call it `_render.R`.
+
+<div class="countdown" id="timer_5d90d3e6" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+
+---
+class: middle, center
+
+# 🍱
+
+# Time for lunch!
+
+<div class="countdown blink-colon noupdate-15" id="timer_5d90d31a" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">60</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

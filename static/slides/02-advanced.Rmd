@@ -29,8 +29,7 @@ options(htmltools.dir.version = FALSE)
 episode_counter <- 0
 knitr::opts_chunk$set(
   collapse = TRUE,   
-  comment = "#>",
-  eval = FALSE
+  comment = "#>"
 )
 options(knitr.table.format = "markdown")
 ```
@@ -40,6 +39,7 @@ library(countdown)
 library(ymlthis)
 library(tidyverse)
 library(janitor)
+library(bakeoff)
 ```
 
 
@@ -93,7 +93,7 @@ class: top
 
 .left-column[
 <span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #2f5275;"></i>
+  <i class="fa fa-circle fa-stack-2x" style="color: #f2e255;"></i>
   <strong class="fa-stack-1x" style="color: #fff;">?</strong>
 </span> 
 
@@ -144,9 +144,7 @@ class: center, middle
 knitr::include_graphics("images/outputs.png")
 ```
 
-??? 
 
-but first a pop quiz...
 
 ---
 class: pop-quiz
@@ -222,7 +220,7 @@ class: your-turn
 
 # Your turn
 
-Find a partner and look at `02-progress.Rmd` together. 
+Find a partner and look at `02-bakeoff-finales.Rmd` together. 
 Look at the source, then `r emo::ji("yarn")` **Knit**.
 
 Answer the following questions:
@@ -246,7 +244,7 @@ class: middle, center, inverse
 
 <span class="fa-stack fa-4x">
   <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
-  <strong class="fa-stack-1x" style="color:#2f5275;">`r (episode_counter <- episode_counter + 1)` </strong>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
 </span> 
 
 --
@@ -312,15 +310,13 @@ countdown(minutes = 2)
 
 # Temp check `r emo::ji("thermometer")`
 
-Does your current YAML look like this?
+Do you have new output formats in your YAML?
 
 ```{r echo=FALSE}
 yml_empty() %>% 
-  yml_author("Your name here") %>% 
-  yml_title("Your title here") %>% 
   yml_output(html_document(toc = TRUE, toc_float = TRUE, theme = "flatly"), 
-             word_document(), 
-             pdf_document()
+             word_document(toc = TRUE), 
+             pdf_document(toc = TRUE)
              )  %>% 
   asis_yaml_output()
 ```
@@ -333,44 +329,6 @@ Notice that when you knit, it respects those output options in your YAML.
 
 This way you "save" your output options
 
----
-class: your-turn
-
-# Your turn
-
-## Add output options with your YAML
-
-.pull-left[
-
-You just used the drop-down `r emo::ji("yarn")` **Knit** button to knit to Word and PDF. 
-
-1. Change your YAML to the right...
-
-1. Be __very careful__ about indentation and `:` here!!
-
-1. `r emo::ji("yarn")` **Knit** to Word again- is there a TOC?
-
-]
-
-.pull-right[
-
-```{r echo=FALSE}
-yml_empty() %>% 
-  yml_author("Your name here") %>% 
-  yml_title("Your title here") %>% 
-  yml_output(html_document(toc = TRUE, toc_float = TRUE, theme = "flatly"), 
-             word_document(toc = TRUE), 
-             pdf_document()
-             ) %>% 
-  asis_yaml_output()
-```
-
-]
-
-
-```{r echo = FALSE}
-countdown(minutes = 1)
-```
 
 ---
 
@@ -391,6 +349,7 @@ countdown(minutes = 1)
 
 + Easy to forget the possible `values` for a given `key`
 ]
+
 ---
 class: your-turn
 
@@ -398,8 +357,62 @@ class: your-turn
 
 ## Use an extension package
 
+.pull-left[
 
-1. Edit your YAML again! Change the `output:` key to only `distill::distill_article` 
+1. Edit your YAML again! Change the `output:` key to only `bookdown::html_document2` 
+
+1. Save the document; click on the dropdown `r emo::ji("yarn")` **Knit** button- what do you notice?
+
+1. `r emo::ji("yarn")` **Knit** to html_document2.
+
+]
+
+.pull-right[
+```{r echo=FALSE}
+yml_empty() %>% 
+  yml_output(
+    bookdown::html_document2(
+      toc = TRUE, 
+      toc_float = TRUE, 
+      theme = "flatly")
+    )  %>% 
+  asis_yaml_output()
+```
+]
+
+
+
+```{r echo = FALSE}
+countdown(minutes = 2)
+```
+
+
+.footnote[(note: this requires you to install the [`bookdown` package](https://bookdown.org/yihui/bookdown/) on your own computer)]
+
+---
+class: live-code
+
+# Adding figure auto-numbering & captions
+
+Together we:
+
+1. Label that chunk
+
+1. Add a cross-reference like see Figure `\@ref(fig:pretty-plot)`
+
+1. Try with `finale-scatterplot` code chunk: see Figure `\@ref(fig:finale-scatterplot)` (watch what happens if try to cross-reference without a caption!)
+
+.footnote[Cross-referencing only works in these output packages: distill, bookdown, blogdown]
+
+---
+class: your-turn
+
+# Your turn
+
+## Use another extension package
+
+
+1. Edit your YAML again! Add the output format `distill::distill_article` 
 
 1. Save the document; click on the dropdown `r emo::ji("yarn")` **Knit** button- what do you notice?
 
@@ -427,25 +440,13 @@ class: your-turn
 
 ## Answer
 
-.pull-left[
-```{r echo = FALSE}
-yml_empty() %>% 
-  yml_author("Your name here") %>% 
-  yml_title("Your title here") %>% 
-  yml_output(distill::distill_article()) %>% 
-  asis_yaml_output()
-```
-]
 
-.pull-right[
 ```{r echo = FALSE}
 yml_empty() %>% 
-  yml_author("Your name here") %>% 
-  yml_title("Your title here") %>% 
   yml_output(distill::distill_article(toc = TRUE)) %>% 
   asis_yaml_output()
 ```
-]
+
 
 ---
 class: middle
@@ -526,20 +527,202 @@ output:
 
 ]
 
+
 ---
+class: middle, center, inverse
 
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
 
+--
 
-
+# Command line
 
 
 ---
 class: middle, center
 
-# `r emo::ji("stopwatch")`
+# Rendering
 
-# Time for a break!
+.pull-left[
+
+So far: `r emo::ji("yarn")`
+
+]
+
+.pull-right[
+```{r eval=FALSE}
+render("02-bakeoff-finales.Rmd")
+```
+
+]
+---
+class: your-turn
+
+# Your turn
+
+Instead of using the "Knit" button, try running this code in your R console:
+
+```{r eval = FALSE}
+library(rmarkdown) # needs to be loaded first
+render("02-bakeoff-finales.Rmd")
+```
+
+
+Now try changing the parameters:
+
+```{r eval = FALSE}
+render("02-bakeoff-finales.Rmd",
+       params = list(series = "9"))
+```
+
+__If this was easy__, play with the other parameters too. Or see if you can change the output format, and add output options.
+
+_psst...answers on the next slide..._
+
 
 ```{r echo = FALSE}
-countdown(minutes = 15, update_every = 15)
+countdown(minutes = 5)
+```
+
+---
+class: your-turn
+
+# Answer
+
+```{r eval=FALSE}
+render("02-bakeoff-finales.Rmd",
+       params = list(series = "9"), 
+       output_format = distill::distill_article(toc = TRUE))
+```
+
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Render loops
+
+---
+class: live-code
+
+# We loop together
+
+
+```{r eval=FALSE}
+# the setup
+series <- sort(unique(ratings$series))
+
+# the loop
+for (this_series in series) {
+  render("02-bakeoff-finales.Rmd",
+         params = list(series = this_series))
+}
+```
+
+_psst...the wrong way_
+
+---
+
+# We need two things
+
+For the `rmarkdown::render()` function to work they way we want:
+
+1. The list of series -> `params`
+
+1. The name of each report -> `output_file`
+
+We could do this with a loop, but let's start purrring...
+
+---
+
+# Rendering multiple reports
+
+```{r loop-setup, eval=FALSE}
+# the setup
+
+paths <- paste0("series-", series)
+
+# series needs to be a list
+series <- sort(unique(ratings$series))
+params <- map(series, ~ list(series = .x))
+str(params)
+```
+
+```{r loop-walk, eval=FALSE}
+walk2(
+  paths, params,
+  ~ rmarkdown::render("02-bakeoff-finales.Rmd", output_file = .x, params = .y)
+)
+```
+
+
+---
+class: your-turn
+
+# Your turn
+
+Try to get this set-up working locally for you.
+
+```{r ref.label='loop-setup', eval=FALSE}
+```
+
+```{r ref.label='loop-walk', eval=FALSE}
+```
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+
+---
+class: live-code
+
+# Digging deeper
+
+So now the output file name changed, but we can go deeper.
+
+Let's say we'd also like the change the title in our YAML.
+
+Let's do this together.
+
+(make sure the below is in quotes)
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_title("The Great British Bake Off, Series `r params$series`") %>% 
+  asis_yaml_output()
+```
+
+---
+class: your-turn
+
+# Your turn
+
+Use your render script again and check to make sure that the titles now have the series number in them. 
+
+It is good practice to save your rendering script in the project, call it `_render.R`.
+
+```{r echo=FALSE}
+countdown(minutes = 5)
+```
+
+
+---
+class: middle, center
+
+# `r emo::ji("bento")`
+
+# Time for lunch!
+
+```{r echo = FALSE}
+countdown(minutes = 60, update_every = 15)
 ```
