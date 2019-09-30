@@ -67,7 +67,99 @@ class: live-code
 
 
 ---
-what are we doing? We'll build a package first, then add some R Markdown templates
+# What are we doing? 
+
+I built a package for us to use.
+
+---
+
+.left-column[
+
+# &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Go here:
+
+[https://github.com/ysc2019-workshop/03-templates](https://github.com/ysc2019-workshop/03-templates)
+
+Click on "Use this template" (make sure you are logged in)
+
+&lt;img src="images/cloud-from-template.png" width="3840" /&gt;
+
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# In your repo
+
+Click on green button, then the clipboard to copy HTTPS
+
+&lt;img src="images/cloud-from-https.png" width="3840" /&gt;
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Go to rstudio.cloud:
+
+[http://bit.ly/ysc-rmarkdown](http://bit.ly/ysc-rmarkdown)
+
+1. Join space &gt; Click on "Projects" (nothing there)
+
+1. New Project from GitHub Repo
+
+1. Use **your** HTTPS link:
+
+
+  &lt;img src="images/cloud-from-git.png" width="50%" /&gt;
+
+1. Name your project
+
+]
+
+---
+
+.left-column[
+
+# &lt;i class="fas fa-cloud"&gt;&lt;/i&gt;
+
+]
+
+.right-column[
+
+# Last step!
+
+I promise! Still in rstudio.cloud:
+
+
+```r
+library(usethis)
+use_git_config(
+  scope = "project",
+  user.name = "Jane",
+  user.email = "jane@example.org"
+)
+```
+
+]
 
 ---
 class: middle, center, inverse
@@ -122,11 +214,18 @@ class: your-turn
 
 # Your turn
 
-Open up my existing `01-rmd` template &amp;mdash; find in `inst/rmarkdown/templates/01-rmd`.
+Open up my existing `basic-rmd` template &amp;mdash; find in `inst/rmarkdown/templates/basic-rmd`.
 
 1. Add your name and a title to this template. 
+
 1. Edit the YAML for the built-in `html_document` output format. Consider adding some of your favorite output options for the HTML format (theme? floating toc? parameters?)
+
 1. Edit the content. Add a good `knitr` setup chunk at the top.
+
+<div class="countdown" id="timer_5d917783" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
 
 ---
 class: live-code
@@ -142,6 +241,7 @@ class: live-code
 
 We demo creating a new project in RStudio and using the template there so as not to pollute our package project.
 
+
 ---
 class: middle, center, inverse
 
@@ -152,18 +252,25 @@ class: middle, center, inverse
 
 --
 
-# Extension Formats
+# Custom Styles
 
 ---
+class: live-code
 
-Now try creating a fresh template on your own, and use an extension output format like:
+# Let's do a custom one
 
-+ `distill::distill_article`
-+ `bookdown::html_document2`
-+ `xaringan::moon_reader`
-+ `flexdashboard::flexdashboard`
+now we talk about adding supporting files like a logo and css. See my `custom-rmd` template.
 
+---
+class: your-turn
 
+# Your turn
+
+Figure out how the `custom-rmd` template works. Maybe talk with a partner/neighbor.
+
+<div class="countdown" id="timer_5d917898" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 class: middle, center, inverse
@@ -175,11 +282,33 @@ class: middle, center, inverse
 
 --
 
-# Custom Styles
+# Extension Formats
 
 ---
+class: live-code
 
-now we talk about adding supporting files like a logo and css. See my `03-custom-rmd` template.
+# Let's look at my slide template
+
+Check out `custom-xaringan` template together.
+
+---
+class: your-turn
+
+# Your turn
+
+Now try creating a fresh template on your own, and use an extension output format like:
+
++ `distill::distill_article`
+
++ `bookdown::html_document2`
+
++ `xaringan::moon_reader`
+
++ `flexdashboard::flexdashboard`
+
+<div class="countdown" id="timer_5d91792c" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 class: middle, center, inverse
@@ -195,10 +324,12 @@ class: middle, center, inverse
 
 ---
 
-now we talk about adding supporting files like a logo and css. See my `04-custom-format` template.
+# Possible!
 
----
-teaser at end re project templates
+https://bookdown.org/yihui/rmarkdown/new-formats.html
+
+
+
 ---
 class: middle, center, inverse
 
@@ -206,7 +337,7 @@ class: middle, center, inverse
 
 # Time for a break!
 
-<div class="countdown blink-colon noupdate-15" id="timer_5d9131d6" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown blink-colon noupdate-15" id="timer_5d91795c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
     </textarea>

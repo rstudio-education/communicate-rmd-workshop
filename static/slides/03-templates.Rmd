@@ -88,7 +88,104 @@ class: live-code
 
 
 ---
-what are we doing? We'll build a package first, then add some R Markdown templates
+# What are we doing? 
+
+I built a package for us to use.
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# Go here:
+
+[`r params$github_link`](`r params$github_link`)
+
+Click on "Use this template" (make sure you are logged in)
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-template.png")
+```
+
+]
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# In your repo
+
+Click on green button, then the clipboard to copy HTTPS
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-https.png")
+```
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Go to rstudio.cloud:
+
+[`r params$cloud_link`](`r params$cloud_link`)
+
+1. Join space > Click on "Projects" (nothing there)
+
+1. New Project from GitHub Repo
+
+1. Use **your** HTTPS link:
+
+
+  ```{r echo=FALSE, out.width='50%'}
+  knitr::include_graphics("images/cloud-from-git.png")
+  ```
+
+1. Name your project
+
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Last step!
+
+I promise! Still in rstudio.cloud:
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(
+  scope = "project",
+  user.name = "Jane",
+  user.email = "jane@example.org"
+)
+```
+
+]
 
 ---
 class: middle, center, inverse
@@ -141,11 +238,18 @@ class: your-turn
 
 # Your turn
 
-Open up my existing `01-rmd` template &mdash; find in `inst/rmarkdown/templates/01-rmd`.
+Open up my existing `basic-rmd` template &mdash; find in `inst/rmarkdown/templates/basic-rmd`.
 
 1. Add your name and a title to this template. 
+
 1. Edit the YAML for the built-in `html_document` output format. Consider adding some of your favorite output options for the HTML format (theme? floating toc? parameters?)
+
 1. Edit the content. Add a good `knitr` setup chunk at the top.
+
+```{r echo=FALSE}
+countdown(minutes=5)
+```
+
 
 ---
 class: live-code
@@ -161,28 +265,6 @@ class: live-code
 
 We demo creating a new project in RStudio and using the template there so as not to pollute our package project.
 
----
-class: middle, center, inverse
-
-<span class="fa-stack fa-4x">
-  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
-  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
-</span> 
-
---
-
-# Extension Formats
-
----
-
-Now try creating a fresh template on your own, and use an extension output format like:
-
-+ `distill::distill_article`
-+ `bookdown::html_document2`
-+ `xaringan::moon_reader`
-+ `flexdashboard::flexdashboard`
-
-
 
 ---
 class: middle, center, inverse
@@ -197,8 +279,60 @@ class: middle, center, inverse
 # Custom Styles
 
 ---
+class: live-code
 
-now we talk about adding supporting files like a logo and css. See my `03-custom-rmd` template.
+# Let's do a custom one
+
+now we talk about adding supporting files like a logo and css. See my `custom-rmd` template.
+
+---
+class: your-turn
+
+# Your turn
+
+Figure out how the `custom-rmd` template works. Maybe talk with a partner/neighbor.
+
+```{r echo=FALSE}
+countdown(minutes=5)
+```
+
+---
+class: middle, center, inverse
+
+<span class="fa-stack fa-4x">
+  <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+  <strong class="fa-stack-1x" style="color:#17a2b8;">`r (episode_counter <- episode_counter + 1)` </strong>
+</span> 
+
+--
+
+# Extension Formats
+
+---
+class: live-code
+
+# Let's look at my slide template
+
+Check out `custom-xaringan` template together.
+
+---
+class: your-turn
+
+# Your turn
+
+Now try creating a fresh template on your own, and use an extension output format like:
+
++ `distill::distill_article`
+
++ `bookdown::html_document2`
+
++ `xaringan::moon_reader`
+
++ `flexdashboard::flexdashboard`
+
+```{r echo=FALSE}
+countdown(minutes=5)
+```
 
 ---
 class: middle, center, inverse
@@ -214,10 +348,12 @@ class: middle, center, inverse
 
 ---
 
-now we talk about adding supporting files like a logo and css. See my `04-custom-format` template.
+# Possible!
 
----
-teaser at end re project templates
+https://bookdown.org/yihui/rmarkdown/new-formats.html
+
+
+
 ---
 class: middle, center, inverse
 
