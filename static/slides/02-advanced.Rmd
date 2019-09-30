@@ -218,6 +218,102 @@ class: your-turn
      (noun)                                             (noun) 
 ```
 
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# Go here:
+
+[`r params$github_link`](`r params$github_link`)
+
+Click on "Use this template" (make sure you are logged in)
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-template.png")
+```
+
+]
+
+---
+
+.left-column[
+
+# <i class="fab fa-github"></i>
+
+]
+
+.right-column[
+
+# In your repo
+
+Click on green button, then the clipboard to copy HTTPS
+
+```{r echo=FALSE}
+knitr::include_graphics("images/cloud-from-https.png")
+```
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Go to rstudio.cloud:
+
+[`r params$cloud_link`](`r params$cloud_link`)
+
+1. Join space > Click on "Projects" (nothing there)
+
+1. New Project from GitHub Repo
+
+1. Use **your** HTTPS link:
+
+
+  ```{r echo=FALSE, out.width='50%'}
+  knitr::include_graphics("images/cloud-from-git.png")
+  ```
+
+1. Name your project
+
+]
+
+---
+
+.left-column[
+
+# <i class="fas fa-cloud"></i>
+
+]
+
+.right-column[
+
+# Last step!
+
+I promise! Still in rstudio.cloud:
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(
+  scope = "project",
+  user.name = "Jane",
+  user.email = "jane@example.org"
+)
+```
+
+]
+
 ---
 class: your-turn
 
@@ -614,6 +710,7 @@ class: middle, center, inverse
 
 # Render loops
 
+
 ---
 class: live-code
 
@@ -635,6 +732,13 @@ _psst...the wrong way_
 
 ---
 
+```{r echo=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics("images/joy-of-fp/forloops.png")
+```
+
+
+---
+
 # We need two things
 
 For the `rmarkdown::render()` function to work they way we want:
@@ -643,7 +747,29 @@ For the `rmarkdown::render()` function to work they way we want:
 
 1. The name of each report -> `output_file`
 
-We could do this with a loop, but let's start purrring...
+We could do this with a loop, but let's start **purrr**ing...
+
+---
+class: center, middle, inverse
+
+> "Of course someone has to write **loops**. 
+
+> It doesn't have to be _you_.
+
+> &mdash; Jenny Bryan
+
+---
+
+```{r echo=FALSE, fig.align="center"}
+knitr::include_graphics("images/joy-of-fp/map_frosting.png")
+```
+
+---
+
+```{r echo=FALSE, fig.align="center"}
+knitr::include_graphics("images/joy-of-fp/map2_cupcakes.png")
+```
+
 
 ---
 
